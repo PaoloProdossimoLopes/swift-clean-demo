@@ -39,12 +39,19 @@ final class RemoteAddAccountTests: XCTestCase {
         XCTAssertEqual(client.data, model.asData)
     }
     
-    func test_add_should_complete_with_error_if_client_fail() {
+    func test_add_should_complete_with_error_if_client_complete_with_error() {
         let (sut, client) = makeSUT()
         let expectation = expectation(description: "waiting")
         
-        sut.add(model: makeAddAccountModel()) { error in
-            XCTAssertEqual(error, .unxpected)
+        sut.add(model: makeAddAccountModel()) { result in
+            
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error, .unxpected)
+            case .success:
+                XCTFail("Epected error, recieved \(result) instead")
+            }
+            
             expectation.fulfill()
         }
         

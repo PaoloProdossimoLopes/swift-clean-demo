@@ -11,9 +11,9 @@ public final class RemoteAddAccount {
         self.client = client
     }
     
-    public func add(model: AddAccountModel, completion: @escaping ((DomainError) -> Void)) {
-        client.post(to: url, with: model.asData) { error in
-            completion(.unxpected)
+    public func add(model: AddAccountModel, completion: @escaping ((Result<AccountModel,DomainError>) -> Void)) {
+        client.post(to: url, with: model.asData) { result in
+            completion(.failure(.unxpected))
         }
     }
 }
