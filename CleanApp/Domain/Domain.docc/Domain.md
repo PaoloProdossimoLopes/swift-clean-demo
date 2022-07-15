@@ -4,7 +4,7 @@ Apenas Protocolos e structs
 
 ## Overview
 
-<!--@START_MENU_TOKEN@-->Text<!--@END_MENU_TOKEN@-->
+Por nao ter comportamento e ser composto apenas de protocolo e strutcs nao é nescessario ter testes
 
 ## Topics
 
