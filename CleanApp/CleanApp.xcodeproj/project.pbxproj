@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		B148A14928811EE40088BECA /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = B148A14828811EE40088BECA /* Domain.docc */; };
+		B148A14F288120280088BECA /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A14E288120280088BECA /* AddAccount.swift */; };
+		B148A151288121830088BECA /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A150288121830088BECA /* AccountModel.swift */; };
+		B148A1532881219C0088BECA /* AddAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1522881219C0088BECA /* AddAccountModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B148A14528811EE40088BECA /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A14828811EE40088BECA /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
+		B148A14E288120280088BECA /* AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccount.swift; sourceTree = "<group>"; };
+		B148A150288121830088BECA /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		B148A1522881219C0088BECA /* AddAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,9 @@
 			isa = PBXGroup;
 			children = (
 				B148A14828811EE40088BECA /* Domain.docc */,
+				B148A14E288120280088BECA /* AddAccount.swift */,
+				B148A1522881219C0088BECA /* AddAccountModel.swift */,
+				B148A150288121830088BECA /* AccountModel.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -129,6 +138,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B148A14928811EE40088BECA /* Domain.docc in Sources */,
+				B148A151288121830088BECA /* AccountModel.swift in Sources */,
+				B148A14F288120280088BECA /* AddAccount.swift in Sources */,
+				B148A1532881219C0088BECA /* AddAccountModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
