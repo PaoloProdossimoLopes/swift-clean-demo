@@ -1,5 +1,7 @@
 import Foundation
+
 public struct AddAccountModel: Model {
+    
     public let name: String
     public let email: String
     public let password: String
@@ -12,5 +14,3 @@ public struct AddAccountModel: Model {
         self.passwordConfirmation = passwordConfirmation
     }
 }
-
-
