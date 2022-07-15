@@ -55,7 +55,51 @@ final class RemoteAddAccountTests: XCTestCase {
             expectation.fulfill()
         }
         
-        client.completeWith(error: .noConnectivity)
+        client.completeWith(result: .failure(.noConnectivity))
+        
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func test_add_should_complete_with_account_if_client_succeeds_complete_with_data() {
+        let (sut, client) = makeSUT()
+        let model = makeAddAccountModel()
+        let expected = makeAccountModel()
+        let expectation = expectation(description: "waiting")
+        
+        sut.add(model: model) { result in
+            switch result {
+            case .failure:
+                XCTFail("Epected error, recieved \(result) instead")
+                
+            case .success(let recievedAccount):
+                XCTAssertEqual(recievedAccount, expected)
+            }
+            
+            expectation.fulfill()
+        }
+        
+        client.completeWith(result: .success(expected.asData))
+        
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func test_add_should_complete_with_error_if_client_complete_with_invalid_data() {
+        let (sut, client) = makeSUT()
+        let expectation = expectation(description: "waiting")
+        
+        sut.add(model: makeAddAccountModel()) { result in
+            
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error, .unxpected)
+            case .success:
+                XCTFail("Epected error, recieved \(result) instead")
+            }
+            
+            expectation.fulfill()
+        }
+        
+        client.completeWith(result: .success(Data("invalid_data".utf8)))
         
         wait(for: [expectation], timeout: 1)
     }
@@ -75,6 +119,13 @@ private extension RemoteAddAccountTests {
         return .init(
             name: "any_name", email: "any_email@mail.com",
             password: "any_password", passwordConfirmation: "any_password"
+        )
+    }
+    
+    func makeAccountModel() -> AccountModel {
+        return .init(
+            id: "id", name: "any_name",
+            email: "any_email@mail.com", password: "any_password"
         )
     }
     

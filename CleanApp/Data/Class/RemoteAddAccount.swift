@@ -13,7 +13,22 @@ public final class RemoteAddAccount {
     
     public func add(model: AddAccountModel, completion: @escaping ((Result<AccountModel,DomainError>) -> Void)) {
         client.post(to: url, with: model.asData) { result in
-            completion(.failure(.unxpected))
+            switch result {
+            case .success(let data):
+                self.handleSuccess(data, completion: completion)
+                
+            case .failure:
+                completion(.failure(.unxpected))
+            }
         }
+    }
+    
+    private func handleSuccess(_ data: Data?, completion: ((Result<AccountModel,DomainError>) -> Void)) {
+        guard let data = data, let model: AccountModel = data.asModel(from: data) else {
+            completion(.failure(.unxpected))
+            return
+        }
+        
+        completion(.success(model))
     }
 }
