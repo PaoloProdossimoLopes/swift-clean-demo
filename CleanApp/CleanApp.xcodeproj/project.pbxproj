@@ -20,6 +20,8 @@
 		B148A1C0288135EB0088BECA /* RemoteAddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1BF288135EB0088BECA /* RemoteAddAccount.swift */; };
 		B148A1C2288136180088BECA /* HTTPPostClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1C1288136180088BECA /* HTTPPostClient.swift */; };
 		B148A1C42881363D0088BECA /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1C32881363D0088BECA /* HTTPClientSpy.swift */; };
+		B148A1CC2881414F0088BECA /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1CB2881414F0088BECA /* DomainError.swift */; };
+		B148A1D0288143240088BECA /* HTTPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1CF288143240088BECA /* HTTPErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		B148A1BF288135EB0088BECA /* RemoteAddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddAccount.swift; sourceTree = "<group>"; };
 		B148A1C1288136180088BECA /* HTTPPostClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPPostClient.swift; sourceTree = "<group>"; };
 		B148A1C32881363D0088BECA /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		B148A1CB2881414F0088BECA /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
+		B148A1CF288143240088BECA /* HTTPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		B148A14628811EE40088BECA /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B148A1CA288141450088BECA /* Errors */,
 				B148A1C9288136A20088BECA /* Protocols */,
 				B148A1C82881369F0088BECA /* Models */,
 				B148A14828811EE40088BECA /* Domain.docc */,
@@ -133,6 +138,7 @@
 				B148A1C7288136950088BECA /* Class */,
 				B148A1C5288136880088BECA /* Protocols */,
 				B148A1A22881231F0088BECA /* Data.docc */,
+				B148A1CF288143240088BECA /* HTTPErrors.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -140,8 +146,8 @@
 		B148A1AC2881231F0088BECA /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
-				B148A1AD2881231F0088BECA /* RemoteAddAccountTests.swift */,
-				B148A1C32881363D0088BECA /* HTTPClientSpy.swift */,
+				B148A1CE288141960088BECA /* Tests */,
+				B148A1CD2881418E0088BECA /* TestDoubles */,
 			);
 			path = DataTests;
 			sourceTree = "<group>";
@@ -185,6 +191,30 @@
 				B148A1BD288135400088BECA /* Model.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B148A1CA288141450088BECA /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1CB2881414F0088BECA /* DomainError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		B148A1CD2881418E0088BECA /* TestDoubles */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1C32881363D0088BECA /* HTTPClientSpy.swift */,
+			);
+			path = TestDoubles;
+			sourceTree = "<group>";
+		};
+		B148A1CE288141960088BECA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1AD2881231F0088BECA /* RemoteAddAccountTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +367,7 @@
 				B148A14928811EE40088BECA /* Domain.docc in Sources */,
 				B148A151288121830088BECA /* AccountModel.swift in Sources */,
 				B148A14F288120280088BECA /* AddAccount.swift in Sources */,
+				B148A1CC2881414F0088BECA /* DomainError.swift in Sources */,
 				B148A1532881219C0088BECA /* AddAccountModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B148A1D0288143240088BECA /* HTTPErrors.swift in Sources */,
 				B148A1C2288136180088BECA /* HTTPPostClient.swift in Sources */,
 				B148A1A32881231F0088BECA /* Data.docc in Sources */,
 				B148A1C0288135EB0088BECA /* RemoteAddAccount.swift in Sources */,
