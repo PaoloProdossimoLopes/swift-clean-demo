@@ -13,6 +13,23 @@ final class RemoteAddAccountTests: XCTestCase {
         XCTAssertEqual(client.url, makeURL())
     }
     
+    func test_add_should_call_httpClient_with_only_one_call() {
+        let (sut, client) = makeSUT()
+        
+        sut.add(model: makeAddAccountModel())
+        
+        XCTAssertEqual(client.callCount, 1)
+    }
+    
+    func test_add_should_call_httpClient_with_two_calls_detected() {
+        let (sut, client) = makeSUT()
+        
+        sut.add(model: makeAddAccountModel())
+        sut.add(model: makeAddAccountModel())
+        
+        XCTAssertEqual(client.callCount, 2)
+    }
+    
     func test_add_should_call_httpClient_with_correct_data() {
         let (sut, client) = makeSUT()
         let model = makeAddAccountModel()
