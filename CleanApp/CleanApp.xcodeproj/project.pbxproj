@@ -120,11 +120,9 @@
 		B148A14628811EE40088BECA /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B148A1C9288136A20088BECA /* Protocols */,
+				B148A1C82881369F0088BECA /* Models */,
 				B148A14828811EE40088BECA /* Domain.docc */,
-				B148A14E288120280088BECA /* AddAccount.swift */,
-				B148A1522881219C0088BECA /* AddAccountModel.swift */,
-				B148A150288121830088BECA /* AccountModel.swift */,
-				B148A1BD288135400088BECA /* Model.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -132,9 +130,9 @@
 		B148A1A02881231F0088BECA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B148A1C7288136950088BECA /* Class */,
+				B148A1C5288136880088BECA /* Protocols */,
 				B148A1A22881231F0088BECA /* Data.docc */,
-				B148A1BF288135EB0088BECA /* RemoteAddAccount.swift */,
-				B148A1C1288136180088BECA /* HTTPPostClient.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -153,6 +151,40 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B148A1C5288136880088BECA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1C1288136180088BECA /* HTTPPostClient.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B148A1C7288136950088BECA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1BF288135EB0088BECA /* RemoteAddAccount.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		B148A1C82881369F0088BECA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1522881219C0088BECA /* AddAccountModel.swift */,
+				B148A150288121830088BECA /* AccountModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B148A1C9288136A20088BECA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B148A14E288120280088BECA /* AddAccount.swift */,
+				B148A1BD288135400088BECA /* Model.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
