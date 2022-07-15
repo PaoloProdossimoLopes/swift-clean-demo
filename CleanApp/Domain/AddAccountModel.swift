@@ -1,6 +1,6 @@
-struct AddAccountModel {
-    let name: String
-    let email: String
-    let password: String
-    let passwordConfirmation: String
+public struct AddAccountModel {
+    public let name: String
+    public let email: String
+    public let password: String
+    public let passwordConfirmation: String
 }
