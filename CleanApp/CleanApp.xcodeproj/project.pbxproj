@@ -16,6 +16,7 @@
 		B148A1AE2881231F0088BECA /* RemoteAddAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1AD2881231F0088BECA /* RemoteAddAccountTests.swift */; };
 		B148A1B7288123590088BECA /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B148A14528811EE40088BECA /* Domain.framework */; };
 		B148A1B8288123590088BECA /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B148A14528811EE40088BECA /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B148A1BE288135400088BECA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1BD288135400088BECA /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B148A1A22881231F0088BECA /* Data.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Data.docc; sourceTree = "<group>"; };
 		B148A1A82881231F0088BECA /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A1AD2881231F0088BECA /* RemoteAddAccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddAccountTests.swift; sourceTree = "<group>"; };
+		B148A1BD288135400088BECA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				B148A14E288120280088BECA /* AddAccount.swift */,
 				B148A1522881219C0088BECA /* AddAccountModel.swift */,
 				B148A150288121830088BECA /* AccountModel.swift */,
+				B148A1BD288135400088BECA /* Model.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B148A1BE288135400088BECA /* Model.swift in Sources */,
 				B148A14928811EE40088BECA /* Domain.docc in Sources */,
 				B148A151288121830088BECA /* AccountModel.swift in Sources */,
 				B148A14F288120280088BECA /* AddAccount.swift in Sources */,

@@ -1,4 +1,5 @@
-public struct AddAccountModel: Encodable {
+import Foundation
+public struct AddAccountModel: Model {
     public let name: String
     public let email: String
     public let password: String
@@ -11,3 +12,5 @@ public struct AddAccountModel: Encodable {
         self.passwordConfirmation = passwordConfirmation
     }
 }
+
+

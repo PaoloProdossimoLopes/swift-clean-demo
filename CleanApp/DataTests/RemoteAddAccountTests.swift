@@ -18,8 +18,7 @@ final class RemoteAddAccountTests: XCTestCase {
         
         sut.add(model: model)
         
-        let data = try? JSONEncoder().encode(model)
-        XCTAssertEqual(client.data, data)
+        XCTAssertEqual(client.data, model.asData)
     }
 }
 
@@ -89,7 +88,6 @@ final class RemoteAddAccount {
     }
     
     func add(model: AddAccountModel) {
-        let data = try? JSONEncoder().encode(model)
-        client.post(to: url, with: data)
+        client.post(to: url, with: model.asData)
     }
 }
