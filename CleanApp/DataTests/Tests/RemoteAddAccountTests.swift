@@ -8,7 +8,7 @@ final class RemoteAddAccountTests: XCTestCase {
     func test_add_should_call_httpClient_with_correct_url() {
         let (sut, client) = makeSUT()
         
-        sut.add(model: makeAddAccountModel())
+        sut.add(model: makeAddAccountModel()) { _ in }
         
         XCTAssertEqual(client.url, makeURL())
     }
@@ -16,7 +16,7 @@ final class RemoteAddAccountTests: XCTestCase {
     func test_add_should_call_httpClient_with_only_one_call() {
         let (sut, client) = makeSUT()
         
-        sut.add(model: makeAddAccountModel())
+        sut.add(model: makeAddAccountModel()) { _ in }
         
         XCTAssertEqual(client.callCount, 1)
     }
@@ -24,8 +24,8 @@ final class RemoteAddAccountTests: XCTestCase {
     func test_add_should_call_httpClient_with_two_calls_detected() {
         let (sut, client) = makeSUT()
         
-        sut.add(model: makeAddAccountModel())
-        sut.add(model: makeAddAccountModel())
+        sut.add(model: makeAddAccountModel()) { _ in }
+        sut.add(model: makeAddAccountModel()) { _ in }
         
         XCTAssertEqual(client.callCount, 2)
     }
@@ -34,9 +34,23 @@ final class RemoteAddAccountTests: XCTestCase {
         let (sut, client) = makeSUT()
         let model = makeAddAccountModel()
         
-        sut.add(model: model)
+        sut.add(model: model) { _ in }
         
         XCTAssertEqual(client.data, model.asData)
+    }
+    
+    func test_add_should_complete_with_error_if_client_fail() {
+        let (sut, client) = makeSUT()
+        let expectation = expectation(description: "waiting")
+        
+        sut.add(model: makeAddAccountModel()) { error in
+            XCTAssertEqual(error, .unxpected)
+            expectation.fulfill()
+        }
+        
+        client.completeWith(error: .noConnectivity)
+        
+        wait(for: [expectation], timeout: 1)
     }
 }
 
