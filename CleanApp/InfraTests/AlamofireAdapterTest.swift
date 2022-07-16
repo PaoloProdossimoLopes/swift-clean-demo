@@ -43,21 +43,7 @@ final class AlamofireAdapterTest: XCTestCase {
     
     func test_post_should_complete_with_error_request_completes_with_error() {
         URLProtocolStub.simulate(data: nil, response: nil, error: makeError())
-        
-        let exp = expectation(description: "wait")
-        sut.post(to: makeURL(), with: makeValidData()) { result in
-            switch result {
-            case .success:
-                XCTFail("Expected Failure but result as \(result)")
-                
-            case .failure(let error):
-                XCTAssertEqual(error, .noConnectivity)
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1)
+        expectResult(.failure(.noConnectivity))
     }
 }
 
@@ -69,6 +55,31 @@ private extension AlamofireAdapterTest {
         
         URLProtocolStub.observerRequest { request in
             completion(request)
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1)
+    }
+    
+    func expectResult(
+        _ expected: Result<Data, HTTPError>,
+        file: StaticString = #file, line: UInt = #line
+    ) {
+        let exp = expectation(description: "wait")
+        
+        sut.post(to: makeURL(), with: makeValidData()) { result in
+            switch (expected, result) {
+            case (.failure(let eError), .failure(let rError)):
+                XCTAssertEqual(eError, rError, file: file, line: line)
+                
+            case (.success(let eData), .success(let rData)):
+                XCTAssertEqual(eData, rData, file: file, line: line)
+                
+            default:
+                XCTFail("PROBLEM: Expected: \(expected), but recieved \(result) instead.",
+                        file: file, line: line)
+            }
+            
             exp.fulfill()
         }
         
