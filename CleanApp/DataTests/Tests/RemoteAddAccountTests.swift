@@ -96,21 +96,12 @@ private extension RemoteAddAccountTests {
         return (sut, client)
     }
     
-    func checkMemoryLeak(for instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(
-                instance,
-                "❌ ERROR: Instance of \(instance!) does not dealoqued ...",
-                file: file, line: line
-            )
-        }
-    }
-    
     func expect(
         _ sut: RemoteAddAccount,
         completeWith expectedResult: Result<AccountModel, DomainError>,
         when action: (() -> Void)
     ) {
+        
         let exp = expectation(description: "waiting")
         sut.add(model: makeAddAccountModel()) { result in
             switch (expectedResult, result) {
@@ -131,25 +122,10 @@ private extension RemoteAddAccountTests {
         wait(for: [exp], timeout: 1)
     }
     
-    func makeInvalidData() -> Data {
-        return Data("invalid_data".utf8)
-    }
-    
     func makeAddAccountModel() -> AddAccountModel {
         return .init(
             name: "any_name", email: "any_email@mail.com",
             password: "any_password", passwordConfirmation: "any_password"
         )
-    }
-    
-    func makeAccountModel() -> AccountModel {
-        return .init(
-            id: "id", name: "any_name",
-            email: "any_email@mail.com", password: "any_password"
-        )
-    }
-    
-    func makeURL() -> URL {
-        URL(string: "http://any-url.com")!
     }
 }

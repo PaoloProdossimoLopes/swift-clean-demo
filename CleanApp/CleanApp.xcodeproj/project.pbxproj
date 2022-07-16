@@ -22,6 +22,9 @@
 		B148A1C42881363D0088BECA /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1C32881363D0088BECA /* HTTPClientSpy.swift */; };
 		B148A1CC2881414F0088BECA /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1CB2881414F0088BECA /* DomainError.swift */; };
 		B148A1D0288143240088BECA /* HTTPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1CF288143240088BECA /* HTTPErrors.swift */; };
+		B148A1D3288302D80088BECA /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1D2288302D80088BECA /* XCTestCase+Extensions.swift */; };
+		B148A1D5288303430088BECA /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1D4288303430088BECA /* TestFactories.swift */; };
+		B148A1D7288303AC0088BECA /* AccountModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1D6288303AC0088BECA /* AccountModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		B148A1C32881363D0088BECA /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		B148A1CB2881414F0088BECA /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		B148A1CF288143240088BECA /* HTTPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPErrors.swift; sourceTree = "<group>"; };
+		B148A1D2288302D80088BECA /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		B148A1D4288303430088BECA /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
+		B148A1D6288303AC0088BECA /* AccountModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 		B148A1AC2881231F0088BECA /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
+				B148A1D1288302CA0088BECA /* Helpers */,
 				B148A1CE288141960088BECA /* Tests */,
 				B148A1CD2881418E0088BECA /* TestDoubles */,
 			);
@@ -215,6 +222,16 @@
 				B148A1AD2881231F0088BECA /* RemoteAddAccountTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		B148A1D1288302CA0088BECA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1D2288302D80088BECA /* XCTestCase+Extensions.swift */,
+				B148A1D4288303430088BECA /* TestFactories.swift */,
+				B148A1D6288303AC0088BECA /* AccountModelFactory.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +405,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B148A1AE2881231F0088BECA /* RemoteAddAccountTests.swift in Sources */,
+				B148A1D3288302D80088BECA /* XCTestCase+Extensions.swift in Sources */,
+				B148A1D5288303430088BECA /* TestFactories.swift in Sources */,
+				B148A1D7288303AC0088BECA /* AccountModelFactory.swift in Sources */,
 				B148A1C42881363D0088BECA /* HTTPClientSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

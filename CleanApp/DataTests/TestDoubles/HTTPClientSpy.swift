@@ -5,6 +5,7 @@ final class HTTPClientSpy: HTTPPostClient {
     
     var url: URL?
     var data: Data?
+    
     private var completionHandler: ((Result<Data?, HTTPError>) -> Void)?
     private(set) var callCount: Int = .zero
     
