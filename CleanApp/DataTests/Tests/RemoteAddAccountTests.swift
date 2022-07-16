@@ -51,17 +51,17 @@ final class RemoteAddAccountTests: XCTestCase {
         let (sut, client) = makeSUT()
         let expected = makeAccountModel()
         
-        expect(sut, completeWith: .success(expected), when: {
+        expect(sut, completeWith: .success(expected)) {
             client.completeWith(result: .success(expected.asData))
-        })
+        }
     }
     
     func test_add_should_complete_with_error_if_client_complete_with_invalid_data() {
         let (sut, client) = makeSUT()
         
-        expect(sut, completeWith: .failure(.unxpected), when: {
+        expect(sut, completeWith: .failure(.unxpected)) {
             client.completeWith(result: .success(makeInvalidData()))
-        })
+        }
     }
     
     func test_self_retain_memory_when_add_execute() {
@@ -71,6 +71,18 @@ final class RemoteAddAccountTests: XCTestCase {
         checkMemoryLeak(for: client)
         
         sut.add(model: makeAddAccountModel()) { _ in }
+    }
+    
+    func test_add_should_not_complete_if_sut_has_been_deallocated() {
+        let httpSpy = HTTPClientSpy()
+        var sut: RemoteAddAccount? = .init(to: makeURL(), client: httpSpy)
+        var result: Result<AccountModel, DomainError>?
+        
+        sut?.add(model: makeAddAccountModel()) { result = $0 }
+        sut = nil
+        httpSpy.completeWith(result: .failure(.noConnectivity))
+        
+        XCTAssertNil(result)
     }
 }
 
