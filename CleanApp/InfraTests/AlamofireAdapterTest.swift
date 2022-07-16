@@ -89,6 +89,12 @@ final class AlamofireAdapterTest: XCTestCase {
         expectResult(.failure(.noConnectivity))
     }
     
+    func test_post_should_complete_with_error_when_request_completes_with_300() {
+        let data = makeValidData()
+        URLProtocolStub.simulate(data: data, response: makeHTTPResponse(300), error: nil)
+        expectResult(.failure(.noConnectivity))
+    }
+    
     func test_post_should_complete_with_error_on_all_invalid_cases() {
         URLProtocolStub.simulate(data: makeValidData(), response: makeHTTPResponse(), error: makeError())
         expectResult(.failure(.noConnectivity))
@@ -114,7 +120,7 @@ final class AlamofireAdapterTest: XCTestCase {
 private extension AlamofireAdapterTest {
     
     func expect(_ completion: @escaping ((URLRequest) -> Void)) {
-        let exp = expectation(description: "waiting")
+        let exp = XCTestExpectation(description: "espera")
         
         URLProtocolStub.observerRequest { request in
             completion(request)
@@ -128,7 +134,7 @@ private extension AlamofireAdapterTest {
         _ expected: Result<Data?, HTTPError>,
         file: StaticString = #file, line: UInt = #line
     ) {
-        let exp = expectation(description: "waits")
+        let exp = XCTestExpectation(description: "waits")
         
         sut.post(to: makeURL(), with: makeValidData()) { result in
             switch (expected, result) {

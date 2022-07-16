@@ -19,14 +19,16 @@ public final class AlamofireAdapter: HTTPPostClient {
                 encoding: JSONEncoding.default
             )
             .responseData { dataResponse in
+                guard let response = dataResponse.response else {
+                    completion(.failure(.noConnectivity))
+                    return
+                }
+                
                 switch dataResponse.result {
                 case .failure:
                     completion(.failure(.noConnectivity))
-                case .success(let data):
                     
-                    guard let response = dataResponse.response else {
-                        return completion(.failure(.noConnectivity))
-                    }
+                case .success(let data):
                     
                     switch response.statusCode {
                     case 204:
