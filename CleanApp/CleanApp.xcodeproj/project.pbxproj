@@ -33,6 +33,8 @@
 		B148A1FC288310210088BECA /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1D4288303430088BECA /* TestFactories.swift */; };
 		B148A1FD288310270088BECA /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1D2288302D80088BECA /* XCTestCase+Extensions.swift */; };
 		B148A202288311110088BECA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B148A201288311110088BECA /* Alamofire */; };
+		B148A20528834BE20088BECA /* AlamofireAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A20428834BE20088BECA /* AlamofireAdapter.swift */; };
+		B148A20728834C3C0088BECA /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A20628834C3C0088BECA /* URLProtocolStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		B148A1E028830E000088BECA /* Infra.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Infra.docc; sourceTree = "<group>"; };
 		B148A1E628830E000088BECA /* InfraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A1EB28830E000088BECA /* AlamofireAdapterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireAdapterTest.swift; sourceTree = "<group>"; };
+		B148A20428834BE20088BECA /* AlamofireAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireAdapter.swift; sourceTree = "<group>"; };
+		B148A20628834C3C0088BECA /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				B148A1E028830E000088BECA /* Infra.docc */,
+				B148A20428834BE20088BECA /* AlamofireAdapter.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				B148A1EB28830E000088BECA /* AlamofireAdapterTest.swift */,
+				B148A20628834C3C0088BECA /* URLProtocolStub.swift */,
 			);
 			path = InfraTests;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B148A20528834BE20088BECA /* AlamofireAdapter.swift in Sources */,
 				B148A1E128830E000088BECA /* Infra.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,6 +583,7 @@
 				B148A1FC288310210088BECA /* TestFactories.swift in Sources */,
 				B148A1FD288310270088BECA /* XCTestCase+Extensions.swift in Sources */,
 				B148A1F628830EBB0088BECA /* AlamofireAdapterTest.swift in Sources */,
+				B148A20728834C3C0088BECA /* URLProtocolStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +952,7 @@
 		B148A1F228830E000088BECA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y487CY958A;
@@ -961,6 +970,7 @@
 		B148A1F328830E000088BECA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y487CY958A;
