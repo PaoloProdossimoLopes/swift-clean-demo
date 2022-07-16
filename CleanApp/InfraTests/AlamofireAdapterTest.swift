@@ -13,12 +13,12 @@ final class AlamofireAdapterTest: XCTestCase {
     
     func test_post_should_make_request_with_valid_url() {
         let url = makeURL()
-        sut.post(to: url)
+        sut.post(to: url, with: makeInvalidData())
         expect { XCTAssertEqual(url, $0.url) }
     }
     
     func test_post_should_make_request_with_correct_http_method() {
-        sut.post(to: makeURL())
+        sut.post(to: makeURL(), with: makeInvalidData())
         expect { XCTAssertEqual("POST", $0.httpMethod) }
     }
     
