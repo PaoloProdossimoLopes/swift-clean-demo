@@ -31,6 +31,14 @@ final class AlamofireAdapterTest: XCTestCase {
         sut.post(to: makeURL(), with: makeInvalidData())
         expect { XCTAssertNil($0.httpBodyStream) }
     }
+    
+    func test_sut_was_retain_memory_when_should_be_deallocated() {
+        let iConfiguration = makeURLConfig()
+        let iSession = Session(configuration: iConfiguration)
+        let iSut = AlamofireAdapter(session: iSession)
+        checkMemoryLeak(for: iSut)
+        sut.post(to: makeURL(), with: makeInvalidData())
+    }
 }
 
 //MARK: - Helpers
@@ -47,10 +55,12 @@ private extension AlamofireAdapterTest {
         wait(for: [exp], timeout: 1)
     }
     
-    func makeSUT() {
+    @discardableResult func makeSUT() -> AlamofireAdapter {
         configuration = makeURLConfig()
         session = Session(configuration: configuration)
         sut = AlamofireAdapter(session: session)
+        let SUT = sut
+        return SUT!
     }
     
     func makeURLConfig() -> URLSessionConfiguration {
@@ -79,9 +89,9 @@ final class AlamofireAdapter {
             .jsonObject(with: data, options: .fragmentsAllowed)
         let json = jsonSerialized as? [String: Any]
         
-        let request = session
+        session
             .request(url, method: .post, parameters: json, encoding: JSONEncoding.default)
-        request.resume()
+            .resume()
     }
 }
 
