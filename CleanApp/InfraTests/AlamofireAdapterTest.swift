@@ -128,7 +128,7 @@ private extension AlamofireAdapterTest {
         _ expected: Result<Data?, HTTPError>,
         file: StaticString = #file, line: UInt = #line
     ) {
-        let exp = expectation(description: "wait")
+        let exp = expectation(description: "waits")
         
         sut.post(to: makeURL(), with: makeValidData()) { result in
             switch (expected, result) {
