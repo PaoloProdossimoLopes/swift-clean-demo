@@ -9,22 +9,36 @@ final class AlamofireAdapterTest: XCTestCase {
     
     func test_() {
         makeSUT()
-        let url = makeURL()
         
+        let url = makeURL()
         sut.post(to: url)
         
-        let exp = expectation(description: "waiting")
-        URLProtocolStub.observerRequest { request in
-            XCTAssertEqual(url, request.url)
-            exp.fulfill()
-        }
+        expect { XCTAssertEqual(url, $0.url) }
+    }
+    
+    func test__() {
+        makeSUT()
         
-        wait(for: [exp], timeout: 1)
+        let url = makeURL()
+        sut.post(to: url)
+        
+        expect { XCTAssertEqual("POST", $0.httpMethod) }
     }
 }
 
 //MARK: - Helpers
 private extension AlamofireAdapterTest {
+    
+    func expect(_ completion: @escaping ((URLRequest) -> Void)) {
+        let exp = expectation(description: "waiting")
+        
+        URLProtocolStub.observerRequest { request in
+            completion(request)
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1)
+    }
     
     func makeSUT() {
         configuration = makeURLConfig()
@@ -52,7 +66,7 @@ final class AlamofireAdapter {
     }
     
     func post(to url: URL) {
-        let request = session.request(url)
+        let request = session.request(url, method: .post)
         request.resume()
     }
 }
