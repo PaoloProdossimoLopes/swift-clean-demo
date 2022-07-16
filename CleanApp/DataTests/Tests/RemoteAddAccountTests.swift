@@ -63,6 +63,15 @@ final class RemoteAddAccountTests: XCTestCase {
             client.completeWith(result: .success(makeInvalidData()))
         })
     }
+    
+    func test_self_retain_memory_when_add_execute() {
+        let (sut, client) = makeSUT()
+        
+        checkMemoryLeak(for: sut)
+        checkMemoryLeak(for: client)
+        
+        sut.add(model: makeAddAccountModel()) { _ in }
+    }
 }
 
 //MARK: - Helpers
@@ -73,6 +82,16 @@ private extension RemoteAddAccountTests {
         let url = makeURL()
         let sut = RemoteAddAccount(to: url, client: client)
         return (sut, client)
+    }
+    
+    func checkMemoryLeak(for instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(
+                instance,
+                "❌ ERROR: Instance of \(instance!) does not dealoqued ...",
+                file: file, line: line
+            )
+        }
     }
     
     func expect(
@@ -95,6 +114,7 @@ private extension RemoteAddAccountTests {
             
             exp.fulfill()
         }
+        
         action()
         wait(for: [exp], timeout: 1)
     }

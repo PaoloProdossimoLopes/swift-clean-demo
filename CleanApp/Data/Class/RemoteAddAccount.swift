@@ -12,7 +12,10 @@ public final class RemoteAddAccount {
     }
     
     public func add(model: AddAccountModel, completion: @escaping ((Result<AccountModel,DomainError>) -> Void)) {
-        client.post(to: url, with: model.asData) { result in
+        
+        client.post(to: url, with: model.asData) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let data):
                 self.handleSuccess(data, completion: completion)
