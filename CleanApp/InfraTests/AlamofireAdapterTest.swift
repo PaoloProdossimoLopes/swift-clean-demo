@@ -7,22 +7,29 @@ final class AlamofireAdapterTest: XCTestCase {
     private var session: Session!
     private var configuration: URLSessionConfiguration!
     
-    func test_post_should_make_request_with_valid_url() {
+    override func setUp() {
         makeSUT()
-        
+    }
+    
+    func test_post_should_make_request_with_valid_url() {
         let url = makeURL()
         sut.post(to: url)
-        
         expect { XCTAssertEqual(url, $0.url) }
     }
     
     func test_post_should_make_request_with_correct_http_method() {
-        makeSUT()
-        
-        let url = makeURL()
-        sut.post(to: url)
-        
+        sut.post(to: makeURL())
         expect { XCTAssertEqual("POST", $0.httpMethod) }
+    }
+    
+    func test_post_should_make_request_with_not_nil_httpBodyStream_when_data_is_valid() {
+        sut.post(to: makeURL(), with: makeValidData())
+        expect { XCTAssertNotNil($0.httpBodyStream) }
+    }
+    
+    func test_post_should_make_request_with_nil_httpBodyStream_when_data_is_invalid() {
+        sut.post(to: makeURL(), with: makeInvalidData())
+        expect { XCTAssertNil($0.httpBodyStream) }
     }
 }
 
@@ -65,8 +72,15 @@ final class AlamofireAdapter {
         self.session = session
     }
     
-    func post(to url: URL) {
-        let request = session.request(url, method: .post)
+    func post(to url: URL, with data: Data? = nil) {
+        guard let data = data else { return }
+        
+        let jsonSerialized = try? JSONSerialization
+            .jsonObject(with: data, options: .fragmentsAllowed)
+        let json = jsonSerialized as? [String: Any]
+        
+        let request = session
+            .request(url, method: .post, parameters: json, encoding: JSONEncoding.default)
         request.resume()
     }
 }
