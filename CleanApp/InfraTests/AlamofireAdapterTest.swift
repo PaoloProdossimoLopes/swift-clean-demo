@@ -1,5 +1,6 @@
 import XCTest
 import Alamofire
+import Data
 
 final class AlamofireAdapterTest: XCTestCase {
     
@@ -38,6 +39,25 @@ final class AlamofireAdapterTest: XCTestCase {
         let iSut = AlamofireAdapter(session: iSession)
         checkMemoryLeak(for: iSut)
         sut.post(to: makeURL(), with: makeInvalidData())
+    }
+    
+    func test_post_should_complete_with_error_request_completes_with_error() {
+        URLProtocolStub.simulate(data: nil, response: nil, error: makeError())
+        
+        let exp = expectation(description: "wait")
+        sut.post(to: makeURL(), with: makeValidData()) { result in
+            switch result {
+            case .success:
+                XCTFail("Expected Failure but result as \(result)")
+                
+            case .failure(let error):
+                XCTAssertEqual(error, .noConnectivity)
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1)
     }
 }
 
@@ -82,16 +102,34 @@ final class AlamofireAdapter {
         self.session = session
     }
     
-    func post(to url: URL, with data: Data? = nil) {
-        guard let data = data else { return }
-        
+    func post(
+        to url: URL,
+        with data: Data? = nil,
+        _ completion: ((Result<Data, HTTPError>) -> Void)? = nil
+    ) {
+        session
+            .request(
+                url,
+                method: .post,
+                parameters: handleDataToJson(data),
+                encoding: JSONEncoding.default
+            )
+            .responseData { dataResponse in
+                switch dataResponse.result {
+                case .failure:
+                    completion?(.failure(.noConnectivity))
+                case .success:
+                    break
+                }
+            }
+    }
+    
+    private func handleDataToJson(_ data: Data?) -> [String: Any]? {
+        guard let  data = data else { return nil }
         let jsonSerialized = try? JSONSerialization
             .jsonObject(with: data, options: .fragmentsAllowed)
         let json = jsonSerialized as? [String: Any]
-        
-        session
-            .request(url, method: .post, parameters: json, encoding: JSONEncoding.default)
-            .resume()
+        return json
     }
 }
 
@@ -102,6 +140,10 @@ final class AlamofireAdapter {
 
 
 final class URLProtocolStub: URLProtocol {
+    
+    static var data: Data?
+    static var error: Error?
+    static var response: HTTPURLResponse?
     
     //MARK: - Observer pattern
     
@@ -122,10 +164,46 @@ final class URLProtocolStub: URLProtocol {
     
     override func startLoading() {
         URLProtocolStub.emit?(request)
+        verifyClientHandlers()
     }
     
     override func stopLoading() {
         /*Non nescessary*/
+    }
+    
+    //MARK: - Methods
+    static func simulate(data: Data?, response: HTTPURLResponse?, error: Error?) {
+        URLProtocolStub.data = data
+        URLProtocolStub.response = response
+        URLProtocolStub.error = error
+    }
+    
+    //MARK: - Helpers
+    
+    private func verifyClientHandlers() {
+        configureData()
+        configureResponse()
+        configureError()
+        
+        client?.urlProtocolDidFinishLoading(self)//Notify that request was handleded and to be done
+    }
+    
+    private func configureData() {
+        if let data = URLProtocolStub.data {
+            client?.urlProtocol(self, didLoad: data)
+        }
+    }
+    
+    private func configureResponse() {
+        if let response = URLProtocolStub.response {
+            client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+        }
+    }
+    
+    private func configureError() {
+        if let error = URLProtocolStub.error {
+            client?.urlProtocol(self, didFailWithError: error)
+        }
     }
 }
 
