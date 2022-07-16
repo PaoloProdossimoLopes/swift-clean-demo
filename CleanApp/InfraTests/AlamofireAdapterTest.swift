@@ -7,7 +7,7 @@ final class AlamofireAdapterTest: XCTestCase {
     private var session: Session!
     private var configuration: URLSessionConfiguration!
     
-    func test_() {
+    func test_post_should_make_request_with_valid_url() {
         makeSUT()
         
         let url = makeURL()
@@ -16,7 +16,7 @@ final class AlamofireAdapterTest: XCTestCase {
         expect { XCTAssertEqual(url, $0.url) }
     }
     
-    func test__() {
+    func test_post_should_make_request_with_correct_http_method() {
         makeSUT()
         
         let url = makeURL()
@@ -80,8 +80,9 @@ final class AlamofireAdapter {
 final class URLProtocolStub: URLProtocol {
     
     //MARK: - Observer pattern
-    private static var emit: ((URLRequest) -> Void)?
     
+    private static var emit: ((URLRequest) -> Void)?
+
     static func observerRequest(_ completion: @escaping ((URLRequest) -> Void)) {
         URLProtocolStub.emit = completion
     }
@@ -103,3 +104,4 @@ final class URLProtocolStub: URLProtocol {
         /*Non nescessary*/
     }
 }
+
