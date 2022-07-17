@@ -20,35 +20,54 @@ final class SignUpPresenter {
     
     func signUp(model: SignUpModel) {
         if let message = validate(model: model) {
-            let alertModel = AlertModel(title: "Falha na validaçao", message: message)
-            alertView.showMessage(model: alertModel)
+            showValidatedAlert(with: message)
             return
         }
         
-        let account = SisgnUpMapper.toAddAccountModel(model)
-        
+        let account = SignUpMapper.toAddAccountModel(model)
+        callAddAccount(with: account)
+    }
+    
+    //MARK: - Helpers
+    private func callAddAccount(with account: AddAccountModel) {
         loadingView.display(isLoading: true)
         addAccount.add(model: account) { [weak self] result in
             guard let self = self else { return }
             
-            switch result {
-            case .success:
-                let alertModel = AlertModel(
-                    title: "Sucesso",
-                    message: "Conta criada com sucesso"
-                )
-                self.alertView.showMessage(model: alertModel)
-                
-            case .failure:
-                let alertModel = AlertModel(
-                    title: "Error",
-                    message: "Algo Inesperado aconteceu, tente novamente em alguns instantes"
-                )
-                self.alertView.showMessage(model: alertModel)
-            }
-            
+            self.onAddResultHandler(result)
             self.loadingView.display(isLoading: false)
         }
+    }
+    
+    private func onAddResultHandler(_ result: Result<AccountModel, Error>) {
+        switch result {
+        case .success:
+            self.showSuccessAlert()
+            
+        case .failure:
+            self.showFailureAlert()
+        }
+    }
+    
+    private func showValidatedAlert(with message: String) {
+        let alertModel = AlertModel(title: "Falha na validaçao", message: message)
+        alertView.showMessage(model: alertModel)
+    }
+    
+    private func showSuccessAlert() {
+        let alertModel = AlertModel(
+            title: "Sucesso",
+            message: "Conta criada com sucesso"
+        )
+        self.alertView.showMessage(model: alertModel)
+    }
+    
+    private func showFailureAlert() {
+        let alertModel = AlertModel(
+            title: "Error",
+            message: "Algo Inesperado aconteceu, tente novamente em alguns instantes"
+        )
+        self.alertView.showMessage(model: alertModel)
     }
     
     private func validate(model: SignUpModel) -> String? {
@@ -77,16 +96,5 @@ final class SignUpPresenter {
         }
         
         return nil
-    }
-}
-
-import Domain
-struct SisgnUpMapper {
-    
-    static func toAddAccountModel(_ model: SignUpModel) -> AddAccountModel {
-        return AddAccountModel(
-            name: model.name!, email: model.emaail!,
-            password: model.password!, passwordConfirmation: model.passwordConfimation!
-        )
     }
 }

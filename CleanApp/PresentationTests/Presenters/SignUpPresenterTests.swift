@@ -190,6 +190,8 @@ final class SignUpPresenterTests: XCTestCase {
     }
 }
 
+
+//MARK: - Helpers
 private extension SignUpPresenterTests {
     func makeSUT() {
         addAccountSpy = .init()
@@ -227,80 +229,5 @@ private extension SignUpPresenterTests {
             id: "id", name: "any_name",
             email: "any_email@mail.com", password: "any_password"
         )
-    }
-}
-
-
-
-
-final class AddAccountSpy: AddAccount {
-    
-    var model: AddAccountModel?
-    var expected: AddCompletionBlock?
-    
-    func add(model: AddAccountModel, _ completion: @escaping AddCompletionBlock) {
-        self.model = model
-        expected = completion
-    }
-    
-    func completeWith(_ error: DomainError) {
-        expected?(.failure(error))
-    }
-    
-    func completeWith(_ succes: AccountModel) {
-        expected?(.success(succes))
-    }
-}
-
-
-final class AlertViewSpy: AlertView {
-    
-    var model: AlertModel?
-    
-    private var emit: ((AlertModel) -> Void)?
-    func observer(_ completion: @escaping (AlertModel) -> Void) {
-        emit = completion
-    }
-    
-    func showMessage(model: AlertModel) {
-        self.model = model
-        self.emit?(model)
-    }
-}
-
-
-
-final class EmailValidatorSpy: EmailValidator {
-    
-    var email: String?
-    var isValid = true
-    
-    func isValid(email: String) -> Bool {
-        self.email = email
-        return isValid
-    }
-}
-
-
-final class LoadingViewSpy {
-    
-    //MARK: - Properties
-    var isLoading: Bool = false
-    
-    //MARK: - Observer Pattern
-    typealias ObserverCompletion = ((Bool) -> Void)
-    
-    var emit: ObserverCompletion?
-    
-    func observer(_ completion: @escaping ObserverCompletion) {
-        emit = completion
-    }
-}
-
-//MARK: - LoadingView
-extension LoadingViewSpy: LoadingView {
-    func display(isLoading: Bool) {
-        self.isLoading = isLoading
-        emit?(isLoading)
     }
 }
