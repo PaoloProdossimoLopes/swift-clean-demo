@@ -45,7 +45,6 @@
 		B148A23F288435BA0088BECA /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A23E288435BA0088BECA /* AlertModel.swift */; };
 		B148A241288435CA0088BECA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A240288435CA0088BECA /* AlertView.swift */; };
 		B148A247288438F40088BECA /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A246288438F40088BECA /* EmailValidator.swift */; };
-		B148A25D288458F70088BECA /* SignUpPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A22E28842AF50088BECA /* SignUpPresenterTests.swift */; };
 		B148A25F28845A180088BECA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A25E28845A180088BECA /* LoadingView.swift */; };
 		B148A262288464EF0088BECA /* SignUpMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A261288464EF0088BECA /* SignUpMapper.swift */; };
 		B148A2652884650D0088BECA /* LoadingViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A2642884650D0088BECA /* LoadingViewSpy.swift */; };
@@ -259,14 +258,7 @@
 		B148A12A28811DD70088BECA = {
 			isa = PBXGroup;
 			children = (
-				B148A14628811EE40088BECA /* Domain */,
-				B148A1A02881231F0088BECA /* Data */,
-				B148A1AC2881231F0088BECA /* DataTests */,
-				B148A1DE28830E000088BECA /* Infra */,
-				B148A1EA28830E000088BECA /* InfraTests */,
-				B148A20E2883565C0088BECA /* UseCassesIntegrationTests */,
-				B148A22128842AF50088BECA /* Presentation */,
-				B148A22D28842AF50088BECA /* PresentationTests */,
+				B148A270288467E30088BECA /* Architecture */,
 				B148A13528811DD70088BECA /* Products */,
 				B148A1B6288123590088BECA /* Frameworks */,
 			);
@@ -501,6 +493,61 @@
 				B148A26A288465710088BECA /* AddAccountSpy.swift */,
 			);
 			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
+		B148A26C288467850088BECA /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B148A14628811EE40088BECA /* Domain */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		B148A26D288467B40088BECA /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1A02881231F0088BECA /* Data */,
+				B148A1AC2881231F0088BECA /* DataTests */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		B148A26E288467C50088BECA /* InfraLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B148A1DE28830E000088BECA /* Infra */,
+				B148A1EA28830E000088BECA /* InfraTests */,
+			);
+			path = InfraLayer;
+			sourceTree = "<group>";
+		};
+		B148A26F288467D70088BECA /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B148A22128842AF50088BECA /* Presentation */,
+				B148A22D28842AF50088BECA /* PresentationTests */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		B148A270288467E30088BECA /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				B148A271288467F00088BECA /* Other */,
+				B148A26F288467D70088BECA /* PresentationLayer */,
+				B148A26E288467C50088BECA /* InfraLayer */,
+				B148A26D288467B40088BECA /* DataLayer */,
+				B148A26C288467850088BECA /* DomainLayer */,
+			);
+			path = Architecture;
+			sourceTree = "<group>";
+		};
+		B148A271288467F00088BECA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				B148A20E2883565C0088BECA /* UseCassesIntegrationTests */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -845,7 +892,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B148A25D288458F70088BECA /* SignUpPresenterTests.swift in Sources */,
 				B148A1AE2881231F0088BECA /* RemoteAddAccountTests.swift in Sources */,
 				B148A1D3288302D80088BECA /* XCTestCase+Extensions.swift in Sources */,
 				B148A1D5288303430088BECA /* TestFactories.swift in Sources */,
