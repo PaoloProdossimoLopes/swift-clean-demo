@@ -8,8 +8,11 @@ final class SignUpPresenterTests: XCTestCase {
     private var alertViewSpy: AlertViewSpy!
     private var eValidtorSpy: EmailValidatorSpy!
     
-    func test_signUp_should_show_error_message_if_name_is_not_provided() {
+    override func setUp() {
         makeSUT()
+    }
+    
+    func test_signUp_should_show_error_message_if_name_is_not_provided() {
         let model = makeSignUpModel(name: "")
         let alertModel = makeAlertModel("O campo Nome é obrigatorio")
         
@@ -19,7 +22,6 @@ final class SignUpPresenterTests: XCTestCase {
     }
     
     func test_signUp_should_show_error_message_if_email_is_not_provided() {
-        makeSUT()
         let model = makeSignUpModel(email: "")
         let alertModel = makeAlertModel("O campo Email é obrigatorio")
         
@@ -29,7 +31,6 @@ final class SignUpPresenterTests: XCTestCase {
     }
     
     func test_signUp_should_show_error_message_if_password_is_not_provided() {
-        makeSUT()
         let model = makeSignUpModel(password: "")
         let alertModel = makeAlertModel("O campo de Senha é obrigatorio")
         
@@ -39,7 +40,6 @@ final class SignUpPresenterTests: XCTestCase {
     }
     
     func test_signUp_should_show_error_message_if_password_is_provided_empty() {
-        makeSUT()
         let model = makeSignUpModel(password: nil)
         let alertModel = makeAlertModel("O campo de Senha é obrigatorio")
         
@@ -49,7 +49,6 @@ final class SignUpPresenterTests: XCTestCase {
     }
     
     func test_signUp_should_show_error_message_if_passwordConsfirmation_is_not_provided() {
-        makeSUT()
         let model = makeSignUpModel(confirmation: "")
         let alertModel = makeAlertModel("O campo de confirmaçao de senha é obrigatorio")
         
@@ -59,7 +58,6 @@ final class SignUpPresenterTests: XCTestCase {
     }
     
     func test_signUp_should_show_error_message_if_passwordConsfirmation_is_not_match() {
-        makeSUT()
         let model = makeSignUpModel(confirmation: "other_password")
         let alertModel = makeAlertModel("Falha ao confirmar senha")
         
@@ -69,7 +67,6 @@ final class SignUpPresenterTests: XCTestCase {
     }
     
     func test_signUp_should_call_email_validator_with_correct_email() {
-        makeSUT()
         let model = makeSignUpModel()
         
         sut.signUp(model: model)
@@ -78,7 +75,6 @@ final class SignUpPresenterTests: XCTestCase {
     }
     
     func test_signUp_should_show_error_message_if_invalid_email_is_provided() {
-        makeSUT()
         let model = makeSignUpModel()
         let alertModel = makeAlertModel("Email invalido")
         
