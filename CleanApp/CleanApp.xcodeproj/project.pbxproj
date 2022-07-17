@@ -45,6 +45,8 @@
 		B148A23F288435BA0088BECA /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A23E288435BA0088BECA /* AlertModel.swift */; };
 		B148A241288435CA0088BECA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A240288435CA0088BECA /* AlertView.swift */; };
 		B148A247288438F40088BECA /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A246288438F40088BECA /* EmailValidator.swift */; };
+		B148A25D288458F70088BECA /* SignUpPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A22E28842AF50088BECA /* SignUpPresenterTests.swift */; };
+		B148A25F28845A180088BECA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A25E28845A180088BECA /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +176,7 @@
 		B148A23E288435BA0088BECA /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		B148A240288435CA0088BECA /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		B148A246288438F40088BECA /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		B148A25E28845A180088BECA /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +435,7 @@
 			children = (
 				B148A23E288435BA0088BECA /* AlertModel.swift */,
 				B148A240288435CA0088BECA /* AlertView.swift */,
+				B148A25E28845A180088BECA /* LoadingView.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -810,6 +814,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B148A25D288458F70088BECA /* SignUpPresenterTests.swift in Sources */,
 				B148A1AE2881231F0088BECA /* RemoteAddAccountTests.swift in Sources */,
 				B148A1D3288302D80088BECA /* XCTestCase+Extensions.swift in Sources */,
 				B148A1D5288303430088BECA /* TestFactories.swift in Sources */,
@@ -855,6 +860,7 @@
 				B148A23C2884358B0088BECA /* SignUpModel.swift in Sources */,
 				B148A238288435580088BECA /* SignUpPresenter.swift in Sources */,
 				B148A22428842AF50088BECA /* Presentation.docc in Sources */,
+				B148A25F28845A180088BECA /* LoadingView.swift in Sources */,
 				B148A247288438F40088BECA /* EmailValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

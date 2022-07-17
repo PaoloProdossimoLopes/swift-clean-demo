@@ -1,19 +1,51 @@
 import Foundation
+import Domain
 
 final class SignUpPresenter {
     
     private let alertView: AlertView
-    private var eValidator: EmailValidator
+    private let addAccount: AddAccount
+    private let eValidator: EmailValidator
+    private let loadingView: LoadingView
     
-    init(alertView: AlertView, eValidator: EmailValidator) {
+    init(
+        alertView: AlertView, eValidator: EmailValidator,
+        addAccount: AddAccount, loadingView: LoadingView
+    ) {
         self.alertView = alertView
+        self.addAccount = addAccount
         self.eValidator = eValidator
+        self.loadingView = loadingView
     }
     
     func signUp(model: SignUpModel) {
         if let message = validate(model: model) {
             let alertModel = AlertModel(title: "Falha na validaçao", message: message)
             alertView.showMessage(model: alertModel)
+            return
+        }
+        
+        let account = AddAccountModel(
+            name: model.name!, email: model.emaail!,
+            password: model.password!, passwordConfirmation: model.passwordConfimation!
+        )
+        
+        loadingView.display(isLoading: true)
+        addAccount.add(model: account) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let _):
+                break
+            case .failure:
+                let alertModel = AlertModel(
+                    title: "Error",
+                    message: "Algo Inesperado aconteceu, tente novamente em alguns instantes"
+                )
+                
+                self.loadingView.display(isLoading: false)
+                self.alertView.showMessage(model: alertModel)
+            }
         }
     }
     
