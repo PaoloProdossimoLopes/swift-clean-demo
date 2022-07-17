@@ -10,6 +10,13 @@ import Data
 import Alamofire
 
 public final class AlamofireAdapter: HTTPPostClient {
+    
+    private var session: Session
+    
+    public init(session: Session = .default) {
+        self.session = session
+    }
+    
     public func post(to url: URL, with data: Data?, _ completion: @escaping (Result<Data?, HTTPError>) -> Void) {
         session
             .request(
@@ -54,13 +61,6 @@ public final class AlamofireAdapter: HTTPPostClient {
                     }
                 }
             }
-    }
-    
-    
-    private var session: Session
-    
-    public init(session: Session = .default) {
-        self.session = session
     }
     
     private func handleDataToJson(_ data: Data?) -> [String: Any]? {

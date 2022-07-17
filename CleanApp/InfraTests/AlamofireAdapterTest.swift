@@ -7,8 +7,8 @@ import Data
 final class AlamofireAdapterTest: XCTestCase {
     
     private var sut: AlamofireAdapter!
-    private var session: Session!
-    private var configuration: URLSessionConfiguration!
+    //private var session: Session!
+    //private var configuration: URLSessionConfiguration!
     
     override func setUp() {
         makeSUT()
@@ -158,8 +158,8 @@ private extension AlamofireAdapterTest {
     }
     
     @discardableResult func makeSUT() -> AlamofireAdapter {
-        configuration = makeURLConfig()
-        session = Session(configuration: configuration)
+        let configuration = makeURLConfig()
+        let session = Session(configuration: configuration)
         sut = AlamofireAdapter(session: session)
         let SUT = sut
         return SUT!

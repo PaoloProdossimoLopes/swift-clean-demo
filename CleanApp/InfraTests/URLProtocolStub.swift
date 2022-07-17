@@ -45,9 +45,8 @@ final class URLProtocolStub: URLProtocol {
         configureData()
         configureResponse()
         configureError()
-        
+    
         client?.urlProtocolDidFinishLoading(self)//Notify that request was handleded and to be done
-        clean()
     }
     
     private func configureData() {
@@ -66,11 +65,5 @@ final class URLProtocolStub: URLProtocol {
         if let error = URLProtocolStub.error {
             client?.urlProtocol(self, didFailWithError: error)
         }
-    }
-    
-    private func clean() {
-        URLProtocolStub.data = nil
-        URLProtocolStub.error = nil
-        URLProtocolStub.response = nil
     }
 }

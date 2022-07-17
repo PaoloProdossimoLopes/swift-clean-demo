@@ -4,7 +4,6 @@ public protocol Model: Codable, Equatable { }
 
 public extension Model {
     var asData: Data? { try? JSONEncoder().encode(self) }
-    
 }
 
 public extension Data {
