@@ -81,26 +81,30 @@ final class SignUpPresenter {
     }
     
     func signUp(model: SignUpModel) {
-        
-        if let name = model.name, name.isEmpty {
-            let alertModel = AlertModel(title: "Falha na validaçao", message: "O campo Nome é obrigatorio")
+        if let message = validate(model: model) {
+            let alertModel = AlertModel(title: "Falha na validaçao", message: message)
             alertView.showMessage(model: alertModel)
+        }
+    }
+    
+    private func validate(model: SignUpModel) -> String? {
+        if let name = model.name, name.isEmpty {
+            return "O campo Nome é obrigatorio"
         }
         
         if let email = model.emaail, email.isEmpty {
-            let alertModel = AlertModel(title: "Falha na validaçao", message: "O campo Email é obrigatorio")
-            alertView.showMessage(model: alertModel)
+            return "O campo Email é obrigatorio"
         }
         
         if let password = model.password, password.isEmpty {
-            let alertModel = AlertModel(title: "Falha na validaçao", message: "O campo de Senha é obrigatorio")
-            alertView.showMessage(model: alertModel)
+            return "O campo de Senha é obrigatorio"
         }
         
         if let confirmation = model.passwordConfimation, confirmation.isEmpty {
-            let alertModel = AlertModel(title: "Falha na validaçao", message: "O campo de confirmaçao de senha é obrigatorio")
-            alertView.showMessage(model: alertModel)
+            return "O campo de confirmaçao de senha é obrigatorio"
         }
+        
+        return nil
     }
 }
 
