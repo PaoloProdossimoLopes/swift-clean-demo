@@ -1,13 +1,9 @@
-//
-//  AlamofireAdapter.swift
-//  Infra
-//
-//  Created by Paolo Prodossimo Lopes on 16/07/22.
-//
-
 import Foundation
-import Data
+
 import Alamofire
+
+import Data
+
 
 public final class AlamofireAdapter: HTTPPostClient {
     
