@@ -3,9 +3,11 @@ import Foundation
 final class SignUpPresenter {
     
     private let alertView: AlertView
+    private var eValidator: EmailValidator
     
-    init(alertView: AlertView) {
+    init(alertView: AlertView, eValidator: EmailValidator) {
         self.alertView = alertView
+        self.eValidator = eValidator
     }
     
     func signUp(model: SignUpModel) {
@@ -16,24 +18,28 @@ final class SignUpPresenter {
     }
     
     private func validate(model: SignUpModel) -> String? {
-        if let name = model.name, name.isEmpty {
+        guard let name = model.name, !name.isEmpty else {
             return "O campo Nome é obrigatorio"
         }
         
-        if let email = model.emaail, email.isEmpty {
+        guard let email = model.emaail, !email.isEmpty else {
             return "O campo Email é obrigatorio"
         }
         
-        if let password = model.password, password.isEmpty {
+        guard let password = model.password, !password.isEmpty else {
             return "O campo de Senha é obrigatorio"
         }
         
-        if let confirmation = model.passwordConfimation, confirmation.isEmpty {
+        guard let confirmation = model.passwordConfimation, !confirmation.isEmpty else {
             return "O campo de confirmaçao de senha é obrigatorio"
         }
         
-        if model.password != model.passwordConfimation {
+        guard model.password == model.passwordConfimation else {
             return "Falha ao confirmar senha"
+        }
+        
+        if !eValidator.isValid(email: model.emaail!) {
+            return "Email invalido"
         }
         
         return nil

@@ -44,6 +44,7 @@
 		B148A23C2884358B0088BECA /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A23B2884358B0088BECA /* SignUpModel.swift */; };
 		B148A23F288435BA0088BECA /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A23E288435BA0088BECA /* AlertModel.swift */; };
 		B148A241288435CA0088BECA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A240288435CA0088BECA /* AlertView.swift */; };
+		B148A247288438F40088BECA /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A246288438F40088BECA /* EmailValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 		B148A23B2884358B0088BECA /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		B148A23E288435BA0088BECA /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		B148A240288435CA0088BECA /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		B148A246288438F40088BECA /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +410,7 @@
 		B148A22128842AF50088BECA /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B148A245288438E90088BECA /* Validators */,
 				B148A243288436BC0088BECA /* Model */,
 				B148A242288436B00088BECA /* Presenters */,
 				B148A23D288435B40088BECA /* Alert */,
@@ -455,6 +458,14 @@
 				B148A22E28842AF50088BECA /* SignUpPresenterTests.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		B148A245288438E90088BECA /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				B148A246288438F40088BECA /* EmailValidator.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -844,6 +855,7 @@
 				B148A23C2884358B0088BECA /* SignUpModel.swift in Sources */,
 				B148A238288435580088BECA /* SignUpPresenter.swift in Sources */,
 				B148A22428842AF50088BECA /* Presentation.docc in Sources */,
+				B148A247288438F40088BECA /* EmailValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
