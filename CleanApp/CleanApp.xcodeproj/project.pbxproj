@@ -40,6 +40,10 @@
 		B148A22428842AF50088BECA /* Presentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = B148A22328842AF50088BECA /* Presentation.docc */; };
 		B148A22A28842AF50088BECA /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B148A22028842AF50088BECA /* Presentation.framework */; };
 		B148A22F28842AF50088BECA /* SignUpPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A22E28842AF50088BECA /* SignUpPresenterTests.swift */; };
+		B148A238288435580088BECA /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A237288435580088BECA /* SignUpPresenter.swift */; };
+		B148A23C2884358B0088BECA /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A23B2884358B0088BECA /* SignUpModel.swift */; };
+		B148A23F288435BA0088BECA /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A23E288435BA0088BECA /* AlertModel.swift */; };
+		B148A241288435CA0088BECA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A240288435CA0088BECA /* AlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +103,13 @@
 			remoteGlobalIDString = B148A21F28842AF50088BECA;
 			remoteInfo = Presentation;
 		};
+		B148A239288435740088BECA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B148A12B28811DD70088BECA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B148A14428811EE40088BECA;
+			remoteInfo = Domain;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -157,6 +168,10 @@
 		B148A22328842AF50088BECA /* Presentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Presentation.docc; sourceTree = "<group>"; };
 		B148A22928842AF50088BECA /* PresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A22E28842AF50088BECA /* SignUpPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenterTests.swift; sourceTree = "<group>"; };
+		B148A237288435580088BECA /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		B148A23B2884358B0088BECA /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		B148A23E288435BA0088BECA /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		B148A240288435CA0088BECA /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +408,9 @@
 		B148A22128842AF50088BECA /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B148A243288436BC0088BECA /* Model */,
+				B148A242288436B00088BECA /* Presenters */,
+				B148A23D288435B40088BECA /* Alert */,
 				B148A22328842AF50088BECA /* Presentation.docc */,
 			);
 			path = Presentation;
@@ -401,9 +419,42 @@
 		B148A22D28842AF50088BECA /* PresentationTests */ = {
 			isa = PBXGroup;
 			children = (
-				B148A22E28842AF50088BECA /* SignUpPresenterTests.swift */,
+				B148A244288436C30088BECA /* Presenters */,
 			);
 			path = PresentationTests;
+			sourceTree = "<group>";
+		};
+		B148A23D288435B40088BECA /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				B148A23E288435BA0088BECA /* AlertModel.swift */,
+				B148A240288435CA0088BECA /* AlertView.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		B148A242288436B00088BECA /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				B148A237288435580088BECA /* SignUpPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		B148A243288436BC0088BECA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B148A23B2884358B0088BECA /* SignUpModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B148A244288436C30088BECA /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				B148A22E28842AF50088BECA /* SignUpPresenterTests.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,6 +622,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B148A23A288435740088BECA /* PBXTargetDependency */,
 			);
 			name = Presentation;
 			productName = Presentation;
@@ -787,6 +839,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B148A241288435CA0088BECA /* AlertView.swift in Sources */,
+				B148A23F288435BA0088BECA /* AlertModel.swift in Sources */,
+				B148A23C2884358B0088BECA /* SignUpModel.swift in Sources */,
+				B148A238288435580088BECA /* SignUpPresenter.swift in Sources */,
 				B148A22428842AF50088BECA /* Presentation.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -841,6 +897,11 @@
 			isa = PBXTargetDependency;
 			target = B148A21F28842AF50088BECA /* Presentation */;
 			targetProxy = B148A22B28842AF50088BECA /* PBXContainerItemProxy */;
+		};
+		B148A23A288435740088BECA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B148A14428811EE40088BECA /* Domain */;
+			targetProxy = B148A239288435740088BECA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1314,6 +1375,7 @@
 		B148A23528842AF50088BECA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y487CY958A;
@@ -1331,6 +1393,7 @@
 		B148A23628842AF50088BECA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y487CY958A;
