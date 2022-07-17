@@ -138,6 +138,37 @@ final class SignUpPresenterTests: XCTestCase {
         wait(for: [expect], timeout: 1)
     }
     
+    func test_signUp_should_show_Success_message_if_addAccount_succeeds() {
+        let model = AlertModel(
+            title: "Sucesso",
+            message: "Conta criada com sucesso"
+        )
+        
+        let expect = XCTestExpectation(description: "waiting")
+        alertViewSpy.observer {
+            XCTAssertEqual($0, model)
+            expect.fulfill()
+        }
+        
+        sut.signUp(model: makeSignUpModel())
+        addAccountSpy.completeWith(makeAccountModel())
+        
+        wait(for: [expect], timeout: 1)
+    }
+    
+    func test_signUp_should_hide_loading_message_if_addAccount_succeeds() {
+        let expect = XCTestExpectation(description: "waiting")
+        sut.signUp(model: makeSignUpModel())
+        
+        loadingViewSpy.observer { isLoading in
+            XCTAssertFalse(isLoading)
+            expect.fulfill()
+        }
+        
+        addAccountSpy.completeWith(makeAccountModel())
+        wait(for: [expect], timeout: 1)
+    }
+    
     func test_sut_does_retain_cicle() {
         let alertViewSpy = AlertViewSpy()
         let eValidtorSpy = EmailValidatorSpy()
@@ -189,6 +220,13 @@ private extension SignUpPresenterTests {
     
     func makeAlertModel(_ message: String) -> AlertModel {
         AlertModel(title: "Falha na validaçao", message:message)
+    }
+    
+    func makeAccountModel() -> AccountModel {
+        return .init(
+            id: "id", name: "any_name",
+            email: "any_email@mail.com", password: "any_password"
+        )
     }
 }
 

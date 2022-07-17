@@ -25,18 +25,20 @@ final class SignUpPresenter {
             return
         }
         
-        let account = AddAccountModel(
-            name: model.name!, email: model.emaail!,
-            password: model.password!, passwordConfirmation: model.passwordConfimation!
-        )
+        let account = SisgnUpMapper.toAddAccountModel(model)
         
         loadingView.display(isLoading: true)
         addAccount.add(model: account) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
-            case .success(let _):
-                break
+            case .success:
+                let alertModel = AlertModel(
+                    title: "Sucesso",
+                    message: "Conta criada com sucesso"
+                )
+                self.alertView.showMessage(model: alertModel)
+                
             case .failure:
                 let alertModel = AlertModel(
                     title: "Error",
@@ -75,5 +77,16 @@ final class SignUpPresenter {
         }
         
         return nil
+    }
+}
+
+import Domain
+struct SisgnUpMapper {
+    
+    static func toAddAccountModel(_ model: SignUpModel) -> AddAccountModel {
+        return AddAccountModel(
+            name: model.name!, email: model.emaail!,
+            password: model.password!, passwordConfirmation: model.passwordConfimation!
+        )
     }
 }
