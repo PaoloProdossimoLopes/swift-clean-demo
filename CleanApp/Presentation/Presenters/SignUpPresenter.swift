@@ -32,6 +32,10 @@ final class SignUpPresenter {
             return "O campo de confirmaçao de senha é obrigatorio"
         }
         
+        if model.password != model.passwordConfimation {
+            return "Falha ao confirmar senha"
+        }
+        
         return nil
     }
 }
