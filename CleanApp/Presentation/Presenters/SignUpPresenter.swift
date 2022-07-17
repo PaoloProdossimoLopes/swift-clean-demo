@@ -42,10 +42,10 @@ final class SignUpPresenter {
                     title: "Error",
                     message: "Algo Inesperado aconteceu, tente novamente em alguns instantes"
                 )
-                
-                self.loadingView.display(isLoading: false)
                 self.alertView.showMessage(model: alertModel)
             }
+            
+            self.loadingView.display(isLoading: false)
         }
     }
     

@@ -107,27 +107,18 @@ final class SignUpPresenterTests: XCTestCase {
     }
     
     func test_signUp_should_hide_loading_when_AddAccount_respond_with_error() {
-        let model = AlertModel(
-            title: "Error",
-            message: "Algo Inesperado aconteceu, tente novamente em alguns instantes"
-        )
+        
+        sut.signUp(model: makeSignUpModel())
         
         let expect = XCTestExpectation(description: "waiting")
-        alertViewSpy.observer { _ in
-            XCTAssertFalse(self.loadingViewSpy.isLoading)
+        loadingViewSpy.observer { isLoading in
+            XCTAssertFalse(isLoading)
             expect.fulfill()
         }
         
-        sut.signUp(model: makeSignUpModel())
         addAccountSpy.completeWith(.unxpected)
-        
         wait(for: [expect], timeout: 1)
     }
-    
-//    func test_signUp_should_hide_loading_when_AddAccount_respond_with_success() {
-//        sut.signUp(model: makeSignUpModel())
-//        XCTAssertTrue(loadingViewSpy.isLoading)
-//    }
     
     func test_signUp_should_show_error_message_if_addAccount_fail() {
         let model = AlertModel(
@@ -199,7 +190,6 @@ private extension SignUpPresenterTests {
     func makeAlertModel(_ message: String) -> AlertModel {
         AlertModel(title: "Falha na validaçao", message:message)
     }
-    
 }
 
 
@@ -254,12 +244,25 @@ final class EmailValidatorSpy: EmailValidator {
 }
 
 
-final class LoadingViewSpy: LoadingView {
+final class LoadingViewSpy {
     
+    //MARK: - Properties
     var isLoading: Bool = false
     
+    //MARK: - Observer Pattern
+    typealias ObserverCompletion = ((Bool) -> Void)
+    
+    var emit: ObserverCompletion?
+    
+    func observer(_ completion: @escaping ObserverCompletion) {
+        emit = completion
+    }
+}
+
+//MARK: - LoadingView
+extension LoadingViewSpy: LoadingView {
     func display(isLoading: Bool) {
         self.isLoading = isLoading
+        emit?(isLoading)
     }
-    
 }
