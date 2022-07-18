@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1060FEF28860C670085E371 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10082B7288609ED00654D73 /* SignUpViewController.swift */; };
+		B1060FF028860CB20085E371 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1060FEB28860C200085E371 /* ViewCodeProtocol.swift */; };
+		B1060FF428860E1F0085E371 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1060FF228860D960085E371 /* NSObject+Extensions.swift */; };
 		B148A14928811EE40088BECA /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = B148A14828811EE40088BECA /* Domain.docc */; };
 		B148A14F288120280088BECA /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A14E288120280088BECA /* AddAccount.swift */; };
 		B148A151288121830088BECA /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A150288121830088BECA /* AccountModel.swift */; };
@@ -63,6 +66,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B148A21F28842AF50088BECA;
 			remoteInfo = Presentation;
+		};
+		B1060FED28860C4C0085E371 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B148A12B28811DD70088BECA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B148A2762885704E0088BECA;
+			remoteInfo = iOSUI;
 		};
 		B148A1AA2881231F0088BECA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -127,13 +137,6 @@
 			remoteGlobalIDString = B148A14428811EE40088BECA;
 			remoteInfo = Domain;
 		};
-		B148A2822885704E0088BECA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B148A12B28811DD70088BECA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B148A2762885704E0088BECA;
-			remoteInfo = iOSUI;
-		};
 		B148A28E288571380088BECA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B148A12B28811DD70088BECA /* Project object */;
@@ -169,6 +172,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B10082B7288609ED00654D73 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B1060FEB28860C200085E371 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		B1060FF228860D960085E371 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		B148A14528811EE40088BECA /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A14828811EE40088BECA /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
 		B148A14E288120280088BECA /* AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccount.swift; sourceTree = "<group>"; };
@@ -298,6 +304,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B10082B6288609DE00654D73 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B10082B7288609ED00654D73 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		B1060FEA28860C180085E371 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B1060FEB28860C200085E371 /* ViewCodeProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B1060FF128860D830085E371 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1060FF228860D960085E371 /* NSObject+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B148A12A28811DD70088BECA = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +629,9 @@
 		B148A2782885704E0088BECA /* iOSUI */ = {
 			isa = PBXGroup;
 			children = (
+				B1060FF128860D830085E371 /* Extensions */,
+				B1060FEA28860C180085E371 /* Protocol */,
+				B10082B6288609DE00654D73 /* SignUp */,
 				B148A27A2885704E0088BECA /* iOSUI.docc */,
 			);
 			path = iOSUI;
@@ -857,7 +890,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B148A2832885704E0088BECA /* PBXTargetDependency */,
+				B1060FEE28860C4C0085E371 /* PBXTargetDependency */,
 			);
 			name = iOSUITests;
 			productName = iOSUITests;
@@ -1105,7 +1138,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1060FEF28860C670085E371 /* SignUpViewController.swift in Sources */,
+				B1060FF028860CB20085E371 /* ViewCodeProtocol.swift in Sources */,
 				B148A27B2885704E0088BECA /* iOSUI.docc in Sources */,
+				B1060FF428860E1F0085E371 /* NSObject+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,6 +1160,11 @@
 			isa = PBXTargetDependency;
 			target = B148A21F28842AF50088BECA /* Presentation */;
 			targetProxy = B10082B4288576BE00654D73 /* PBXContainerItemProxy */;
+		};
+		B1060FEE28860C4C0085E371 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B148A2762885704E0088BECA /* iOSUI */;
+			targetProxy = B1060FED28860C4C0085E371 /* PBXContainerItemProxy */;
 		};
 		B148A1AB2881231F0088BECA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1169,11 +1210,6 @@
 			isa = PBXTargetDependency;
 			target = B148A14428811EE40088BECA /* Domain */;
 			targetProxy = B148A239288435740088BECA /* PBXContainerItemProxy */;
-		};
-		B148A2832885704E0088BECA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B148A2762885704E0088BECA /* iOSUI */;
-			targetProxy = B148A2822885704E0088BECA /* PBXContainerItemProxy */;
 		};
 		B148A28F288571380088BECA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1766,6 +1802,7 @@
 		B148A28C2885704E0088BECA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y487CY958A;
@@ -1784,6 +1821,7 @@
 		B148A28D2885704E0088BECA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y487CY958A;

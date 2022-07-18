@@ -1,83 +1,21 @@
 import XCTest
+import Presentation
+@testable import iOSUI
 
 final class SignUpViewControllerTests: XCTestCase {
     
+    private var sut: SignUpViewController!
+    
     func test_loading_is_hidden_on_start() {
-        let sut = SignUpViewController()
+        sut = .init()
         _ = sut.view
         XCTAssertFalse(sut.loadingView.isAnimating)
     }
-}
-
-
-
-
-
-
-
-protocol ViewCodeProtocol {
-    func configureViewCode()
-    func configureHierarchy()
-    func configureConstraint()
-    func configureStyle()
-}
-
-extension ViewCodeProtocol {
-    func configureViewCode() {
-        configureHierarchy()
-        configureConstraint()
-        configureStyle()
-    }
     
-    func configureStyle() {}
-}
-
-
-import UIKit
-import Presentation
-
-final class SignUpViewController: UIViewController {
-    
-    let loadingView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView()
-        view.style = .large
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureViewCode()
+    func test_sut_implements_loadingView_protocol() {
+        sut = .init()
+        XCTAssert(sut.asOpaque is LoadingView)
     }
 }
 
-//MARK: - ViewCodeProtocol
-extension SignUpViewController: ViewCodeProtocol {
-    
-    func configureHierarchy() {
-        view.addSubview(loadingView)
-    }
-    
-    func configureConstraint() {
-        NSLayoutConstraint.activate([
-            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
-    }
-    
-    func configureStyle() {
-        view.backgroundColor = .darkGray
-    }
-}
 
-//MARK: - LoadingView
-extension SignUpViewController: LoadingView {
-    func display(isLoading: Bool) {
-        guard isLoading else {
-            loadingView.stopAnimating()
-            return
-        }
-        
-        loadingView.startAnimating()
-    }
-}
