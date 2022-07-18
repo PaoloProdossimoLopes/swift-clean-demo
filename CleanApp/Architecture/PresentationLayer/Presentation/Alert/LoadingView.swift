@@ -1,3 +1,3 @@
-protocol LoadingView {
+public protocol LoadingView {
     func display(isLoading: Bool)
 }
