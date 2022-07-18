@@ -1,6 +1,6 @@
 import Foundation
 
-struct AlertModel: Equatable {
+public struct AlertModel: Equatable {
     var title: String
     var message: String
 }

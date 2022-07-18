@@ -16,6 +16,9 @@ final class SignUpViewControllerTests: XCTestCase {
         sut = .init()
         XCTAssert(sut.asOpaque is LoadingView)
     }
+    
+    func test_sut_implements_alertView_protocol() {
+        sut = .init()
+        XCTAssert(sut.asOpaque is AlertView)
+    }
 }
-
-

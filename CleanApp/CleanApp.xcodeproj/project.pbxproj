@@ -10,6 +10,7 @@
 		B1060FEF28860C670085E371 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10082B7288609ED00654D73 /* SignUpViewController.swift */; };
 		B1060FF028860CB20085E371 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1060FEB28860C200085E371 /* ViewCodeProtocol.swift */; };
 		B1060FF428860E1F0085E371 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1060FF228860D960085E371 /* NSObject+Extensions.swift */; };
+		B1060FF528860E830085E371 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A240288435CA0088BECA /* AlertView.swift */; };
 		B148A14928811EE40088BECA /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = B148A14828811EE40088BECA /* Domain.docc */; };
 		B148A14F288120280088BECA /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A14E288120280088BECA /* AddAccount.swift */; };
 		B148A151288121830088BECA /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A150288121830088BECA /* AccountModel.swift */; };
@@ -46,7 +47,6 @@
 		B148A238288435580088BECA /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A237288435580088BECA /* SignUpPresenter.swift */; };
 		B148A23C2884358B0088BECA /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A23B2884358B0088BECA /* SignUpModel.swift */; };
 		B148A23F288435BA0088BECA /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A23E288435BA0088BECA /* AlertModel.swift */; };
-		B148A241288435CA0088BECA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A240288435CA0088BECA /* AlertView.swift */; };
 		B148A247288438F40088BECA /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A246288438F40088BECA /* EmailValidator.swift */; };
 		B148A25F28845A180088BECA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A25E28845A180088BECA /* LoadingView.swift */; };
 		B148A262288464EF0088BECA /* SignUpMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A261288464EF0088BECA /* SignUpMapper.swift */; };
@@ -1112,11 +1112,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B148A262288464EF0088BECA /* SignUpMapper.swift in Sources */,
-				B148A241288435CA0088BECA /* AlertView.swift in Sources */,
 				B148A23F288435BA0088BECA /* AlertModel.swift in Sources */,
 				B148A23C2884358B0088BECA /* SignUpModel.swift in Sources */,
 				B148A238288435580088BECA /* SignUpPresenter.swift in Sources */,
 				B148A22428842AF50088BECA /* Presentation.docc in Sources */,
+				B1060FF528860E830085E371 /* AlertView.swift in Sources */,
 				B148A25F28845A180088BECA /* LoadingView.swift in Sources */,
 				B148A247288438F40088BECA /* EmailValidator.swift in Sources */,
 			);

@@ -46,3 +46,10 @@ extension SignUpViewController: LoadingView {
         loadingView.startAnimating()
     }
 }
+
+//MARK: - AlertView
+extension SignUpViewController: AlertView {
+    func showMessage(model: AlertModel) {
+        
+    }
+}

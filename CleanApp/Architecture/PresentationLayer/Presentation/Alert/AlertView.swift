@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AlertView {
+public protocol AlertView {
     func showMessage(model: AlertModel)
 }
