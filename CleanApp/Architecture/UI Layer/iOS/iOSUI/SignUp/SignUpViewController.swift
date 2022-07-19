@@ -59,9 +59,11 @@ final class SignUpViewController: UIViewController {
     //MARK: - Helpers
     private func configureAction() {
         saveButton.addTarget(self, action: #selector(saveButtonHandleTapped), for: .touchUpInside)
+        hideKeyboardOnTap()
     }
     
     //MARK: - Selectos
+    
     @objc private func saveButtonHandleTapped() {
         let signUpModel = SignUpModel.init(
             name: nameTextField.text, emaail: emailTextField.text,
@@ -94,10 +96,12 @@ extension SignUpViewController: ViewCodeProtocol {
 extension SignUpViewController: LoadingView {
     func display(isLoading: Bool) {
         guard isLoading else {
+            view.isUserInteractionEnabled = false
             loadingView.stopAnimating()
             return
         }
         
+        view.isUserInteractionEnabled = true
         loadingView.startAnimating()
     }
 }
@@ -105,6 +109,8 @@ extension SignUpViewController: LoadingView {
 //MARK: - AlertView
 extension SignUpViewController: AlertView {
     func showMessage(model: AlertModel) {
-        
+        let alert = UIAlertController(title: model.title, message: model.message, preferredStyle: .alert)
+        alert.addAction(.init(title: "Ok", style: .default))
+        present(alert, animated: true)
     }
 }

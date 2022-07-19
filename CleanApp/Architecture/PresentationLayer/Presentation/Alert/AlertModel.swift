@@ -1,6 +1,14 @@
 import Foundation
 
 public struct AlertModel: Equatable {
-    var title: String
-    var message: String
+    public var title: String
+    public var message: String
+    
+    public init(
+        title: String,
+        message: String
+    ) {
+        self.title = title
+        self.message = message
+    }
 }

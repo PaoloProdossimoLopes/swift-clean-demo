@@ -12,6 +12,7 @@
 		B1060FF428860E1F0085E371 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1060FF228860D960085E371 /* NSObject+Extensions.swift */; };
 		B1060FF528860E830085E371 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A240288435CA0088BECA /* AlertView.swift */; };
 		B1060FF9288625880085E371 /* Test+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1060FF72886256B0085E371 /* Test+Extensions.swift */; };
+		B1060FFD288627E90085E371 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1060FFB288627AC0085E371 /* UIViewController+Extension.swift */; };
 		B148A14928811EE40088BECA /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = B148A14828811EE40088BECA /* Domain.docc */; };
 		B148A14F288120280088BECA /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A14E288120280088BECA /* AddAccount.swift */; };
 		B148A151288121830088BECA /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A150288121830088BECA /* AccountModel.swift */; };
@@ -177,6 +178,7 @@
 		B1060FEB28860C200085E371 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		B1060FF228860D960085E371 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		B1060FF72886256B0085E371 /* Test+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+Extensions.swift"; sourceTree = "<group>"; };
+		B1060FFB288627AC0085E371 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B148A14528811EE40088BECA /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A14828811EE40088BECA /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
 		B148A14E288120280088BECA /* AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccount.swift; sourceTree = "<group>"; };
@@ -334,6 +336,14 @@
 			isa = PBXGroup;
 			children = (
 				B1060FF72886256B0085E371 /* Test+Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B1060FFA288627930085E371 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B1060FFB288627AC0085E371 /* UIViewController+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -667,6 +677,7 @@
 		B148A291288571FC0088BECA /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B1060FFA288627930085E371 /* Helpers */,
 				B148A2842885704E0088BECA /* iOSUITests */,
 				B148A2782885704E0088BECA /* iOSUI */,
 			);
@@ -1152,6 +1163,7 @@
 				B1060FEF28860C670085E371 /* SignUpViewController.swift in Sources */,
 				B1060FF028860CB20085E371 /* ViewCodeProtocol.swift in Sources */,
 				B148A27B2885704E0088BECA /* iOSUI.docc in Sources */,
+				B1060FFD288627E90085E371 /* UIViewController+Extension.swift in Sources */,
 				B1060FF428860E1F0085E371 /* NSObject+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
