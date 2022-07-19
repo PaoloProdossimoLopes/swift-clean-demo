@@ -34,6 +34,7 @@
 		B10610D42886BFD30085E371 /* Validation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10610032886325E0085E371 /* Validation.framework */; platformFilter = ios; };
 		B10610D52886BFD30085E371 /* Validation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B10610032886325E0085E371 /* Validation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B10610E02886BFFF0085E371 /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10610DF2886BFFF0085E371 /* MainTests.swift */; };
+		B10BD8592886C30A00286962 /* SignUpFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD8582886C30A00286962 /* SignUpFactory.swift */; };
 		B148A14928811EE40088BECA /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = B148A14828811EE40088BECA /* Domain.docc */; };
 		B148A14F288120280088BECA /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A14E288120280088BECA /* AddAccount.swift */; };
 		B148A151288121830088BECA /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A150288121830088BECA /* AccountModel.swift */; };
@@ -292,6 +293,7 @@
 		B10610BC2886BFB10085E371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B10610DD2886BFFF0085E371 /* MainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10610DF2886BFFF0085E371 /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
+		B10BD8582886C30A00286962 /* SignUpFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFactory.swift; sourceTree = "<group>"; };
 		B148A14528811EE40088BECA /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A14828811EE40088BECA /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
 		B148A14E288120280088BECA /* AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccount.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 		B10610AD2886BFAF0085E371 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B10BD8572886C30200286962 /* Factories */,
 				B10610AE2886BFAF0085E371 /* AppDelegate.swift */,
 				B10610B02886BFAF0085E371 /* SceneDelegate.swift */,
 				B10610B72886BFB10085E371 /* Assets.xcassets */,
@@ -549,6 +552,14 @@
 				B10610DE2886BFFF0085E371 /* MainTests */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		B10BD8572886C30200286962 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				B10BD8582886C30A00286962 /* SignUpFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		B148A12A28811DD70088BECA = {
@@ -1429,6 +1440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B10610AF2886BFAF0085E371 /* AppDelegate.swift in Sources */,
+				B10BD8592886C30A00286962 /* SignUpFactory.swift in Sources */,
 				B10610B12886BFAF0085E371 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

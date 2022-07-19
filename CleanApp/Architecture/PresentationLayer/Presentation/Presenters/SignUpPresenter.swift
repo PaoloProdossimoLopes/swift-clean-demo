@@ -1,14 +1,14 @@
 import Foundation
 import Domain
 
-final class SignUpPresenter {
+public final class SignUpPresenter {
     
     private let alertView: AlertView
     private let addAccount: AddAccount
     private let eValidator: EmailValidator
     private let loadingView: LoadingView
     
-    init(
+    public init(
         alertView: AlertView, eValidator: EmailValidator,
         addAccount: AddAccount, loadingView: LoadingView
     ) {
@@ -18,7 +18,7 @@ final class SignUpPresenter {
         self.loadingView = loadingView
     }
     
-    func signUp(model: SignUpModel) {
+    public func signUp(model: SignUpModel) {
         if let message = validate(model: model) {
             showValidatedAlert(with: message)
             return
@@ -39,7 +39,7 @@ final class SignUpPresenter {
         }
     }
     
-    private func onAddResultHandler(_ result: Result<AccountModel, Error>) {
+    private func onAddResultHandler(_ result: Result<AccountModel, DomainError>) {
         switch result {
         case .success:
             self.showSuccessAlert()

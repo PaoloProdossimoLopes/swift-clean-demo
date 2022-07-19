@@ -4,10 +4,9 @@ import Presentation
 public final class SignUpViewController: UIViewController {
     
     //MARK: - Properties
-    var signUp: ((SignUpModel) -> Void)?
+    public var signUp: ((SignUpModel) -> Void)?
     
-    public init(signUp: ((SignUpModel) -> Void)?) {
-        self.signUp = signUp
+    public init() {
         super.init(nibName: nil, bundle: nil)
     }
     
