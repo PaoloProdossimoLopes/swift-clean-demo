@@ -1,10 +1,19 @@
 import UIKit
 import Presentation
 
-final class SignUpViewController: UIViewController {
+public final class SignUpViewController: UIViewController {
     
     //MARK: - Properties
     var signUp: ((SignUpModel) -> Void)?
+    
+    public init(signUp: ((SignUpModel) -> Void)?) {
+        self.signUp = signUp
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - UI Components
     let loadingView: UIActivityIndicatorView = {
@@ -50,7 +59,7 @@ final class SignUpViewController: UIViewController {
     }()
     
     //MARK: - Constructor
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         configureViewCode()
         configureAction()
@@ -94,7 +103,7 @@ extension SignUpViewController: ViewCodeProtocol {
 
 //MARK: - LoadingView
 extension SignUpViewController: LoadingView {
-    func display(isLoading: Bool) {
+    public func display(isLoading: Bool) {
         guard isLoading else {
             view.isUserInteractionEnabled = false
             loadingView.stopAnimating()
@@ -108,7 +117,7 @@ extension SignUpViewController: LoadingView {
 
 //MARK: - AlertView
 extension SignUpViewController: AlertView {
-    func showMessage(model: AlertModel) {
+    public func showMessage(model: AlertModel) {
         let alert = UIAlertController(title: model.title, message: model.message, preferredStyle: .alert)
         alert.addAction(.init(title: "Ok", style: .default))
         present(alert, animated: true)

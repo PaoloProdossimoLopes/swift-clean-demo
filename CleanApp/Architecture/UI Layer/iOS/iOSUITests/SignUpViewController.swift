@@ -25,7 +25,7 @@ final class SignUpViewControllerTests: XCTestCase {
     
     func test_save_button_calls_signUp_on_tap() {
         var count = 0
-        sut = .init()
+        sut = .init(signUp: nil)
         sut.signUp = { _ in count += 1 }
         sut.viewDidLoad()
         sut.saveButton.simulateTap()
@@ -48,7 +48,7 @@ final class SignUpViewControllerTests: XCTestCase {
 //MARK: - Helper
 private extension SignUpViewControllerTests {
     func makeSUT() {
-        sut = .init()
+        sut = .init(signUp: nil)
         _ = sut.view
     }
 }
