@@ -649,6 +649,7 @@
 		B148A2782885704E0088BECA /* iOSUI */ = {
 			isa = PBXGroup;
 			children = (
+				B1060FFA288627930085E371 /* Helpers */,
 				B1060FF128860D830085E371 /* Extensions */,
 				B1060FEA28860C180085E371 /* Protocol */,
 				B10082B6288609DE00654D73 /* SignUp */,
@@ -677,7 +678,6 @@
 		B148A291288571FC0088BECA /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				B1060FFA288627930085E371 /* Helpers */,
 				B148A2842885704E0088BECA /* iOSUITests */,
 				B148A2782885704E0088BECA /* iOSUI */,
 			);
