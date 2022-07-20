@@ -14,9 +14,10 @@ final class ControllerFactory {
         //let url = URL(string: "https://asdasdasdaasd.asdasd.com")!
         //let client = AlamofireAdapter()
         //let account = RemoteAddAccount(to: url, client: client)
+        let weakController = WeakProxy(controller)
         let presenter = SignUpPresenter(
-            alertView: controller, eValidator: eValdatorAdapter,
-            addAccount: addAccount, loadingView: controller
+            alertView: weakController, eValidator: eValdatorAdapter,
+            addAccount: addAccount, loadingView: weakController
         )
         controller.signUp = presenter.signUp
         return controller
