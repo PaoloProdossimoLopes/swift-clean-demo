@@ -41,6 +41,7 @@
 		B10BD8602887A8E200286962 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A1D2288302D80088BECA /* XCTestCase+Extensions.swift */; };
 		B10BD8632887AC4E00286962 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD8622887AC4E00286962 /* WeakProxy.swift */; };
 		B10BD86C2887C2D600286962 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD86B2887C2D600286962 /* Enviroment.swift */; };
+		B10BD86F2887CE0E00286962 /* MainThreadDispatcherDecorartor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD86E2887CE0E00286962 /* MainThreadDispatcherDecorartor.swift */; };
 		B148A14928811EE40088BECA /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = B148A14828811EE40088BECA /* Domain.docc */; };
 		B148A14F288120280088BECA /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A14E288120280088BECA /* AddAccount.swift */; };
 		B148A151288121830088BECA /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A150288121830088BECA /* AccountModel.swift */; };
@@ -306,6 +307,7 @@
 		B10BD8692887C21800286962 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		B10BD86A2887C25E00286962 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		B10BD86B2887C2D600286962 /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
+		B10BD86E2887CE0E00286962 /* MainThreadDispatcherDecorartor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainThreadDispatcherDecorartor.swift; sourceTree = "<group>"; };
 		B148A14528811EE40088BECA /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A14828811EE40088BECA /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
 		B148A14E288120280088BECA /* AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccount.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 		B10BD8642887AD9A00286962 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				B10BD86D2887CDF100286962 /* Decorrator */,
 				B10BD8612887AC3700286962 /* Proxy */,
 				B10BD85C2887A64200286962 /* Composer */,
 				B10BD8572886C30200286962 /* Factories */,
@@ -634,6 +637,14 @@
 				B10BD86B2887C2D600286962 /* Enviroment.swift */,
 			);
 			path = Enviroment;
+			sourceTree = "<group>";
+		};
+		B10BD86D2887CDF100286962 /* Decorrator */ = {
+			isa = PBXGroup;
+			children = (
+				B10BD86E2887CE0E00286962 /* MainThreadDispatcherDecorartor.swift */,
+			);
+			path = Decorrator;
 			sourceTree = "<group>";
 		};
 		B148A12A28811DD70088BECA = {
@@ -1513,6 +1524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10BD86F2887CE0E00286962 /* MainThreadDispatcherDecorartor.swift in Sources */,
 				B10BD8632887AC4E00286962 /* WeakProxy.swift in Sources */,
 				B10BD85B2887A5E000286962 /* UseCaseFactory.swift in Sources */,
 				B10610AF2886BFAF0085E371 /* AppDelegate.swift in Sources */,

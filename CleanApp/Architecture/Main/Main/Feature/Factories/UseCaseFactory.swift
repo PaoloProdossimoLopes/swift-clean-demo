@@ -13,6 +13,7 @@ final class UseCaseFactory {
     }
     
     static func makeRemoteAddAccount() -> AddAccount {
-        return RemoteAddAccount(to: makeURL(with: "singup"), client: client)
+        let addAccount = RemoteAddAccount(to: makeURL(with: "singup"), client: client)
+        return MainThreadDispatcherDecorator(addAccount)
     }
 }

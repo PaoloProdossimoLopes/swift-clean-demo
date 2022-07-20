@@ -1,0 +1,10 @@
+//
+//  Debug.xcconfig
+//  CleanApp
+//
+//  Created by Paolo Prodossimo Lopes on 20/07/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+API_BASE_URL = https:/$()/someapi@debug.com/endpoint
