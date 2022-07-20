@@ -1,6 +1,7 @@
 import Foundation
+import Domain
 
-public struct SignUpModel: Equatable {
+public struct SignUpModel: Equatable, Model {
     public var name: String?
     public var emaail: String?
     public var password: String?

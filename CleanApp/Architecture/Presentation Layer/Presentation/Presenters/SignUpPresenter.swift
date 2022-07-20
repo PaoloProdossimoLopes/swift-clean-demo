@@ -98,3 +98,8 @@ public final class SignUpPresenter {
         return nil
     }
 }
+
+
+public protocol Validation {
+    func validate(data: [String: Any]?) -> String?
+}

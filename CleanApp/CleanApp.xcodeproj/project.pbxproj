@@ -42,6 +42,9 @@
 		B10BD8632887AC4E00286962 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD8622887AC4E00286962 /* WeakProxy.swift */; };
 		B10BD86C2887C2D600286962 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD86B2887C2D600286962 /* Enviroment.swift */; };
 		B10BD86F2887CE0E00286962 /* MainThreadDispatcherDecorartor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD86E2887CE0E00286962 /* MainThreadDispatcherDecorartor.swift */; };
+		B10BD87328882A2E00286962 /* RequredFieldValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD87028882A1700286962 /* RequredFieldValidationTests.swift */; };
+		B10BD8762888334300286962 /* RequiredFieldValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD8742888332E00286962 /* RequiredFieldValidation.swift */; };
+		B10BD879288837C900286962 /* CompareFieldValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BD877288837A400286962 /* CompareFieldValidationTest.swift */; };
 		B148A14928811EE40088BECA /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = B148A14828811EE40088BECA /* Domain.docc */; };
 		B148A14F288120280088BECA /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A14E288120280088BECA /* AddAccount.swift */; };
 		B148A151288121830088BECA /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148A150288121830088BECA /* AccountModel.swift */; };
@@ -308,6 +311,9 @@
 		B10BD86A2887C25E00286962 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		B10BD86B2887C2D600286962 /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		B10BD86E2887CE0E00286962 /* MainThreadDispatcherDecorartor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainThreadDispatcherDecorartor.swift; sourceTree = "<group>"; };
+		B10BD87028882A1700286962 /* RequredFieldValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequredFieldValidationTests.swift; sourceTree = "<group>"; };
+		B10BD8742888332E00286962 /* RequiredFieldValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredFieldValidation.swift; sourceTree = "<group>"; };
+		B10BD877288837A400286962 /* CompareFieldValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFieldValidationTest.swift; sourceTree = "<group>"; };
 		B148A14528811EE40088BECA /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148A14828811EE40088BECA /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
 		B148A14E288120280088BECA /* AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccount.swift; sourceTree = "<group>"; };
@@ -517,6 +523,7 @@
 			children = (
 				B10610062886325E0085E371 /* Validation.docc */,
 				B106101C288633360085E371 /* EmailValidatorAdapter.swift */,
+				B10BD8742888332E00286962 /* RequiredFieldValidation.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -525,17 +532,19 @@
 			isa = PBXGroup;
 			children = (
 				B10610112886325E0085E371 /* EmailValidatorAdapterTest.swift */,
+				B10BD87028882A1700286962 /* RequredFieldValidationTests.swift */,
+				B10BD877288837A400286962 /* CompareFieldValidationTest.swift */,
 			);
 			path = ValidationTests;
 			sourceTree = "<group>";
 		};
-		B106101E2886B9540085E371 /* Validation */ = {
+		B106101E2886B9540085E371 /* Validation Layer */ = {
 			isa = PBXGroup;
 			children = (
 				B10610042886325E0085E371 /* Validation */,
 				B10610102886325E0085E371 /* ValidationTests */,
 			);
-			path = Validation;
+			path = "Validation Layer";
 			sourceTree = "<group>";
 		};
 		B10610AD2886BFAF0085E371 /* Main */ = {
@@ -557,13 +566,13 @@
 			path = MainTests;
 			sourceTree = "<group>";
 		};
-		B10610E62886C01D0085E371 /* Main */ = {
+		B10610E62886C01D0085E371 /* Main Layer */ = {
 			isa = PBXGroup;
 			children = (
 				B10610AD2886BFAF0085E371 /* Main */,
 				B10610DE2886BFFF0085E371 /* MainTests */,
 			);
-			path = Main;
+			path = "Main Layer";
 			sourceTree = "<group>";
 		};
 		B10BD8572886C30200286962 /* Factories */ = {
@@ -893,62 +902,62 @@
 			path = "Test Doubles";
 			sourceTree = "<group>";
 		};
-		B148A26C288467850088BECA /* DomainLayer */ = {
+		B148A26C288467850088BECA /* Domain Layer */ = {
 			isa = PBXGroup;
 			children = (
 				B148A14628811EE40088BECA /* Domain */,
 			);
-			path = DomainLayer;
+			path = "Domain Layer";
 			sourceTree = "<group>";
 		};
-		B148A26D288467B40088BECA /* DataLayer */ = {
+		B148A26D288467B40088BECA /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
 				B148A1A02881231F0088BECA /* Data */,
 				B148A1AC2881231F0088BECA /* DataTests */,
 			);
-			path = DataLayer;
+			path = "Data Layer";
 			sourceTree = "<group>";
 		};
-		B148A26E288467C50088BECA /* InfraLayer */ = {
+		B148A26E288467C50088BECA /* Infra Layer */ = {
 			isa = PBXGroup;
 			children = (
 				B148A1DE28830E000088BECA /* Infra */,
 				B148A1EA28830E000088BECA /* InfraTests */,
 			);
-			path = InfraLayer;
+			path = "Infra Layer";
 			sourceTree = "<group>";
 		};
-		B148A26F288467D70088BECA /* PresentationLayer */ = {
+		B148A26F288467D70088BECA /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
 				B148A22128842AF50088BECA /* Presentation */,
 				B148A22D28842AF50088BECA /* PresentationTests */,
 			);
-			path = PresentationLayer;
+			path = "Presentation Layer";
 			sourceTree = "<group>";
 		};
 		B148A270288467E30088BECA /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
-				B10610E62886C01D0085E371 /* Main */,
-				B106101E2886B9540085E371 /* Validation */,
+				B10610E62886C01D0085E371 /* Main Layer */,
+				B106101E2886B9540085E371 /* Validation Layer */,
 				B148A290288571EB0088BECA /* UI Layer */,
-				B148A271288467F00088BECA /* Other */,
-				B148A26F288467D70088BECA /* PresentationLayer */,
-				B148A26E288467C50088BECA /* InfraLayer */,
-				B148A26D288467B40088BECA /* DataLayer */,
-				B148A26C288467850088BECA /* DomainLayer */,
+				B148A271288467F00088BECA /* Other Layer */,
+				B148A26F288467D70088BECA /* Presentation Layer */,
+				B148A26E288467C50088BECA /* Infra Layer */,
+				B148A26D288467B40088BECA /* Data Layer */,
+				B148A26C288467850088BECA /* Domain Layer */,
 			);
 			path = Architecture;
 			sourceTree = "<group>";
 		};
-		B148A271288467F00088BECA /* Other */ = {
+		B148A271288467F00088BECA /* Other Layer */ = {
 			isa = PBXGroup;
 			children = (
 				B148A20E2883565C0088BECA /* UseCassesIntegrationTests */,
 			);
-			path = Other;
+			path = "Other Layer";
 			sourceTree = "<group>";
 		};
 		B148A2782885704E0088BECA /* iOSUI */ = {
@@ -1508,6 +1517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B10610072886325E0085E371 /* Validation.docc in Sources */,
+				B10BD8762888334300286962 /* RequiredFieldValidation.swift in Sources */,
 				B106101D288633360085E371 /* EmailValidatorAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1516,7 +1526,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10BD87328882A2E00286962 /* RequredFieldValidationTests.swift in Sources */,
 				B10610122886325E0085E371 /* EmailValidatorAdapterTest.swift in Sources */,
+				B10BD879288837C900286962 /* CompareFieldValidationTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1895,7 +1907,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y487CY958A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Architecture/Main/Main/Info.plist;
+				INFOPLIST_FILE = "Architecture/Main Layer/Main/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1924,7 +1936,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y487CY958A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Architecture/Main/Main/Info.plist;
+				INFOPLIST_FILE = "Architecture/Main Layer/Main/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

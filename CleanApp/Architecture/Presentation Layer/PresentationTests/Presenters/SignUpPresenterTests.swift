@@ -188,7 +188,7 @@ final class SignUpPresenterTests: XCTestCase {
         }
         sut.signUp(model: makeSignUpModel())
     }
-}
+ }
 
 
 //MARK: - Helpers
@@ -229,5 +229,16 @@ private extension SignUpPresenterTests {
             id: "id", name: "any_name",
             email: "any_email@mail.com", password: "any_password"
         )
+    }
+}
+
+final class ValidationSpy: Validation {
+    
+    var data: [String: Any]?
+    var returnExpected: String?
+    
+    func validate(data: [String: Any]?) -> String? {
+        self.data = data
+        return returnExpected
     }
 }

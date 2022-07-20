@@ -4,7 +4,7 @@ import XCTest
 final class EmailValidatorAdapterTests: XCTestCase {
 
     func test_invalid_emails() {
-        let sut = EmailValidatorAdapter()
+        let sut = EmailValidatorAdapter.shared
         XCTAssertFalse(sut.isValid(email: "rr"))
         XCTAssertFalse(sut.isValid(email: "rr@"))
         XCTAssertFalse(sut.isValid(email: "rr@rr"))
@@ -12,7 +12,7 @@ final class EmailValidatorAdapterTests: XCTestCase {
     }
     
     func test_valid_email()  {
-        let sut = EmailValidatorAdapter()
+        let sut = EmailValidatorAdapter.shared
         XCTAssertTrue(sut.isValid(email: "email@email.com"))
     }
 }
