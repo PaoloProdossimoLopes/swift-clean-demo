@@ -32,6 +32,8 @@ public final class SignUpViewController: UIViewController {
     let nameTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "name"
+        tf.backgroundColor = .white
+        tf.layer.cornerRadius = 8
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -39,6 +41,8 @@ public final class SignUpViewController: UIViewController {
     let emailTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "email"
+        tf.backgroundColor = .white
+        tf.layer.cornerRadius = 8
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -46,6 +50,8 @@ public final class SignUpViewController: UIViewController {
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "password"
+        tf.backgroundColor = .white
+        tf.layer.cornerRadius = 8
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -53,8 +59,18 @@ public final class SignUpViewController: UIViewController {
     let passwordConfimationTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "confirmation"
+        tf.backgroundColor = .white
+        tf.layer.cornerRadius = 8
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
+    }()
+    
+    private lazy var mainStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 15
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
     }()
     
     //MARK: - Constructor
@@ -86,12 +102,21 @@ extension SignUpViewController: ViewCodeProtocol {
     
     func configureHierarchy() {
         view.addSubview(loadingView)
+        view.addSubview(mainStackView)
+        mainStackView.addArrangedSubview(nameTextField)
+        mainStackView.addArrangedSubview(emailTextField)
+        mainStackView.addArrangedSubview(passwordTextField)
+        mainStackView.addArrangedSubview(passwordConfimationTextField)
+        mainStackView.addArrangedSubview(saveButton)
     }
     
     func configureConstraint() {
         NSLayoutConstraint.activate([
-            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            loadingView.centerXAnchor.constraint(equalTo: saveButton.centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: saveButton.centerYAnchor),
         ])
     }
     
