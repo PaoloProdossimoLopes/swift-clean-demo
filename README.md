@@ -1,9 +1,6 @@
-#  TITLE
-DESCRIPTION ...
+#  Clean App
+This app I create during the curse ["Swift - TDD, Clean Architecture, Design Patterns, SOLID, MVP"](https://www.udemy.com/course/swift-tdd-com-mango/) by Rodrigo Manguinho, This course are in Udemy 
 
-## 🧰 Example:
-```swift
-```
 
 ## ℹ️  GETTING STARTED
 ### PREREQUISITES 
